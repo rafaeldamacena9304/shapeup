@@ -10,21 +10,32 @@ export const Banner = () => {
 
     //Background images to array
     const banners = [banner1, banner2, banner3];
-    //State for current background image
+    //State for change index with interval of time
     const [currentBanner, setCurrentBanner] = useState(0);
 
-    //In load, set interval for each image to change their 
-    //index in the array of images, with 3s of interval
+    const [fade, setFade] = useState(true);
+    const [zoom, setZoom] = useState(true)
+
+    //Create a change in setCurrentBanner periodically interlinked with banners.lenght ( array of images )
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentBanner((prevBanner) => (prevBanner + 1) % banners.length ) 
+            setFade(false);
+            setZoom(false);
+            
+            setTimeout(() => {
+                setCurrentBanner((prevBanner) => (prevBanner + 1) % banners.length );
+                setFade(true);
+                setZoom(true);
+            }, 500)
+
         }, 3000);
 
         //Stop carrousel when component is not renderized
         return () => clearInterval(interval);
+
     }, [banners.length])
 
     return(
-        <S.Banner src={banners[currentBanner]}/>
+        <S.Banner src={banners[currentBanner]} fade={fade} zoom={zoom}/>
     )
 }

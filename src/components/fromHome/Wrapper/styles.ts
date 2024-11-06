@@ -8,4 +8,5 @@ export const Wrapper = styled.div<WrapperProps>`
   flex-direction:column;
   padding: ${(props) => (props.forImage === false ? '0 116px' : '0')};
   text-align:center;
+  overflow-x:hidden;
 `;
