@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   padding: 16px 48px;
-  background-image: linear-gradient(to right, var(--darkBlue), var(--lightBlue));
+  background-image:var(--blueGradient);
   font-size: 20px;
   font-weight:bold;
   margin-bottom: 24px;

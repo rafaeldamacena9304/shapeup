@@ -5,9 +5,11 @@ export const GlobalStyle = createGlobalStyle`
         --blue:#00A89F;
         --lightBlue:#00C9BF;
         --darkBlue:#00635E;
+        --blueGradient:linear-gradient(to right, #00635E,  #00C9BF);
         --gray:#DDD;
         --lightGray:#EEE;
         --darkGray:#BBB;
+        --preto:#0D0D0D;
     
     }
 
