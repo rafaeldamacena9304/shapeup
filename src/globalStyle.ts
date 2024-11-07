@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+    
+    //General style
+
     :root{
         --blue:#00A89F;
         --lightBlue:#00C9BF;
@@ -8,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         --gray:#DDD;
         --lightGray:#EEE;
         --darkGray:#BBB;
-        --preto:#0D0D0D;
+        --black:#0D0D0D;
         --blueGradient:linear-gradient(to left, #00635E,  #00C9BF);
         --greenGradient: linear-gradient(to left, #00995C, #00FF99);
         --yellowGradient: linear-gradient(to left, #997A00, #FFCC00);
@@ -30,5 +33,19 @@ export const GlobalStyle = createGlobalStyle`
         margin:0 auto;
         max-width:1024px;
         width:100%;
+    }
+
+    //Dashboard style
+
+    .subTitle{
+        font-size:24px;
+        font-weight:500;
+        color:white;
+    }
+    .topContainer{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom:80px;
     }
 `;

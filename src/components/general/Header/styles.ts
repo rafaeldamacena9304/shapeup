@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  background-color: var(--preto);
+  background-color: var(--black);
   padding: 24px 0;
+  margin-bottom:64px;
 
   .container {
     display: flex;

@@ -1,12 +1,12 @@
 import * as S from './styles';
 
 interface MainTitleProps {
-    children:string
+    content:string
 }
 
 export const MainTitle = (props: MainTitleProps) => {
 
     return(
-        <S.MainTitle>{props.children}</S.MainTitle>
+        <S.MainTitle>{props.content}</S.MainTitle>
     )
 }
