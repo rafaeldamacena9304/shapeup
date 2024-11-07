@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./pages/Home";
 import { GlobalStyle } from "./globalStyle";
 import { DashboardPage } from "./pages/Dashboard";
+import { WorkoutConfigPage } from "./pages/WorkoutConfig";
 
 const routes = createBrowserRouter([
   {
@@ -9,9 +10,13 @@ const routes = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path:'/dashboard',
-    element: <DashboardPage />
-  }
+    path: "/dashboard",
+    element: <DashboardPage />,
+  },
+  {
+    path: "/workout",
+    element: <WorkoutConfigPage />,
+  },
 ]);
 
 function App() {
