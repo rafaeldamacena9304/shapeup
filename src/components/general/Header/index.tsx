@@ -26,7 +26,12 @@ export const Header = () => {
           >
             Meu treino
           </S.NavLink>
-          <S.NavLink to="/">Minha dieta</S.NavLink>
+          <S.NavLink
+            className={location.pathname === "/diet" ? "active" : ""}
+            to="/diet"
+          >
+            Minha dieta
+          </S.NavLink>
         </S.Nav>
       </div>
     </S.Header>

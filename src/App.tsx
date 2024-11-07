@@ -3,6 +3,7 @@ import { HomePage } from "./pages/Home";
 import { GlobalStyle } from "./globalStyle";
 import { DashboardPage } from "./pages/Dashboard";
 import { WorkoutConfigPage } from "./pages/WorkoutConfig";
+import { DietConfigPage } from "./pages/DietConfig";
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const routes = createBrowserRouter([
   {
     path: "/workout",
     element: <WorkoutConfigPage />,
+  },
+  {
+    path: "diet",
+    element: <DietConfigPage />,
   },
 ]);
 
