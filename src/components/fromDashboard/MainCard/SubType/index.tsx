@@ -1,12 +1,9 @@
-import * as S from './styles'
+import * as S from "./styles";
 
 interface SubTypeProps {
-    subType: string
+  subType: string;
 }
 
 export const SubType = (props: SubTypeProps) => {
-
-    return(
-        <S.SubType>{props.subType}</S.SubType>
-    )
-}
+  return <S.SubType>{props.subType}</S.SubType>;
+};

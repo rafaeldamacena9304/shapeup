@@ -1,14 +1,14 @@
 export class CardModel {
   status: "Pendente" | "Concluído" | "Lembrete";
   title: string;
-  image:string;
+  image: string;
   subType: string;
   content: string[];
 
   constructor(
     status: "Pendente" | "Concluído" | "Lembrete",
     title: string,
-    image:string,
+    image: string,
     subType: string,
     content: string[]
   ) {
@@ -19,5 +19,3 @@ export class CardModel {
     this.content = content;
   }
 }
-
-
