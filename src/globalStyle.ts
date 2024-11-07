@@ -48,4 +48,8 @@ export const GlobalStyle = createGlobalStyle`
         align-items: center;
         margin-bottom:80px;
     }
+    .cardList{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+    }
 `;

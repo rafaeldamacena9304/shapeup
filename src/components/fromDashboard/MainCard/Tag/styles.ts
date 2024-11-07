@@ -5,6 +5,10 @@ export const Tag = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+
+  img{
+    margin-right:12px;
+  }
 `;
 
 export const Content = styled.span<TagProps>`
