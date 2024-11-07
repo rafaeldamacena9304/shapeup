@@ -29,4 +29,4 @@ export const GlobalStyle = createGlobalStyle`
         max-width:1024px;
         width:100%;
     }
-`
+`;

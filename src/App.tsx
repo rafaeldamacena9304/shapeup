@@ -1,18 +1,18 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { HomePage } from './pages/Home';
-import { GlobalStyle } from './globalStyle';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { HomePage } from "./pages/Home";
+import { GlobalStyle } from "./globalStyle";
 
 const routes = createBrowserRouter([
   {
-    path: '/',
-    element: <HomePage/>
-  }
-])
+    path: "/",
+    element: <HomePage />,
+  },
+]);
 
 function App() {
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <RouterProvider router={routes} />
     </>
   );
