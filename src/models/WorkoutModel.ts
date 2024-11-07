@@ -7,8 +7,8 @@ export class WorkoutModel {
     | "Quinta-feira"
     | "Sexta-feira"
     | "Sábado";
-  modality?: string;
-  exercises?: ExerciseProps[];
+  modality: string;
+  exercises: ExerciseProps[];
 
   constructor(
     day:
@@ -28,7 +28,8 @@ export class WorkoutModel {
   }
 }
 
-interface ExerciseProps {
+export interface ExerciseProps {
+  name: string;
   sets: number;
   reps: number;
 }
