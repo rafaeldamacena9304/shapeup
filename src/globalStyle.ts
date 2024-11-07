@@ -34,6 +34,12 @@ export const GlobalStyle = createGlobalStyle`
         max-width:1024px;
         width:100%;
     }
+    
+    .active{
+        background-image:var(--blueGradient);
+        color:transparent;
+        background-clip:text;
+    }
 
     //Dashboard style
 

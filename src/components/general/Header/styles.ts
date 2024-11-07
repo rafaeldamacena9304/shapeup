@@ -5,7 +5,7 @@ export const Header = styled.header`
   width: 100%;
   background-color: var(--black);
   padding: 24px 0;
-  margin-bottom:64px;
+  margin-bottom: 64px;
 
   .container {
     display: flex;
@@ -18,10 +18,16 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
 `;
-
+export const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
 export const Logo = styled.img`
   width: 140px;
   height: 32px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const NavLink = styled(Link)`
