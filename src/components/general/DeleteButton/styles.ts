@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 18px 0;
+export const Container = styled.div<{spacement?: string}>`
+  padding: ${props => props.spacement ? props.spacement : '18px 0'};
   display: flex;
   align-items: center;
 

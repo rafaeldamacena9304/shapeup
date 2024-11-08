@@ -13,7 +13,12 @@ const Workouts: WorkoutModel[] = [
         name: "Cadeira extensora",
         reps: 10,
         sets: 2,
-      }
+      },
+      {
+        name: "Cadeira extensora",
+        reps: 10,
+        sets: 2,
+      },
     ]
   }
 ]
