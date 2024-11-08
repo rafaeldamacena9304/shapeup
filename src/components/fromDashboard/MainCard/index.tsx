@@ -9,10 +9,10 @@ import * as S from "./styles";
 export const MainCard = (props: CardModel) => {
   return (
     <S.Card>
-      <Tag status={props.status} />
+      <Tag cardType={props.cardType}  />
       <Title image={props.image} title={props.title} />
       <SubType subType={props.subType} />
-      <ContentList workoutContent={props.workoutContent} foodContent={props.foodContent} />
+      <ContentList workoutContent={props.workoutContent} foodContent={props.foodContent} normalContent={props.normalContent}/>
     </S.Card>
   );
 };

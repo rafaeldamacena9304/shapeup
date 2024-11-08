@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { TagProps } from ".";
 
-export const Tag = styled.div`
+export const Tag = styled.div<{cardType: string}>`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
@@ -11,7 +10,7 @@ export const Tag = styled.div`
   }
 `;
 
-export const Content = styled.span<TagProps>`
+export const Content = styled.span<{status: string}>`
   background-image: ${(props) =>
     props.status === "Concluído"
       ? "var(--greenGradient)"

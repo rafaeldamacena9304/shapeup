@@ -13,6 +13,7 @@ export const WorkoutList = ({ cards }: WorkoutListProps) => {
       {cards.map((card) => (
         <li key={card.day}>
           <WorkoutCard
+            status={card.status}
             day={card.day}
             modality={card.modality}
             exercises={card.exercises}

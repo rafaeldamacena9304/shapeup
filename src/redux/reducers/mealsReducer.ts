@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MealModel } from "../../models/MealModel";
 
 const initialState: MealModel[] = [
   {
-    status: false,
+    status: "Pendente",
     title: "Café da manha",
     time: "6:00",
     foods: [
@@ -27,7 +27,7 @@ const initialState: MealModel[] = [
     totalkcal: 280,
   },
   {
-    status: false,
+    status: "Pendente",
     title: "Almoço",
     time: "11:30",
     foods: [
@@ -51,7 +51,7 @@ const initialState: MealModel[] = [
     totalkcal: 351,
   },
   {
-    status: false,
+    status: "Concluído",
     title: "Café da tarde",
     time: "15:30",
     foods: [
@@ -63,7 +63,7 @@ const initialState: MealModel[] = [
         carb: 3,
         fat: 0,
       },
-      { 
+      {
         name: "Iogurte Natural Nestle",
         amount: 160,
         kcal: 50,
@@ -72,13 +72,13 @@ const initialState: MealModel[] = [
         fat: 0,
       },
       {
-        name:"Amendoin Torrado",
+        name: "Amendoin Torrado",
         amount: 50,
-        kcal:313,
-        carb:3,
-        protein:14,
-        fat:25
-      }
+        kcal: 313,
+        carb: 3,
+        protein: 14,
+        fat: 25,
+      },
     ],
     totalkcal: 600,
   },
@@ -87,5 +87,17 @@ const initialState: MealModel[] = [
 export const mealsSlice = createSlice({
   name: "meals",
   initialState,
-  reducers: {},
+  reducers: {
+    updateMealStatus: (
+      state,
+      action: PayloadAction<{ title: string; status: "Concluído" | "Pendente" | "Lembrete" }>
+    ) => {
+      const meal = state.find((meal) => meal.title === action.payload.title);
+      if (meal) {
+        meal.status = action.payload.status;
+      }
+    },
+  },
 });
+
+export const { updateMealStatus } = mealsSlice.actions;

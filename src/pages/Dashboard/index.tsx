@@ -10,18 +10,20 @@ import { CardModel } from "../../models/CardModel";
 import { CardList } from "../../components/fromDashboard/MainCardList";
 
 import dumbbell from "../../assets/images/dumbbell.png";
-import cup from '../../assets/images/cup.svg';
-import apple from '../../assets/images/apple.svg'
-
-
+import cup from "../../assets/images/cup.svg";
+import apple from "../../assets/images/apple.svg";
 
 export const DashboardPage = () => {
-
-  const todayWorkout = useSelector((state: RootState) => selectTodayWorkout(state));
-  const currentMeal = useSelector((state: RootState) => selectCurrentMeal(state))
+  const todayWorkout = useSelector((state: RootState) =>
+    selectTodayWorkout(state)
+  );
+  const currentMeal = useSelector((state: RootState) =>
+    selectCurrentMeal(state)
+  );
 
   const cards: CardModel[] = [
     {
+      cardType: "treino",
       status: "Pendente",
       title: "Treino de hoje",
       subType: todayWorkout!.modality,
@@ -29,6 +31,7 @@ export const DashboardPage = () => {
       image: dumbbell,
     },
     {
+      cardType: "dieta",
       status: "Pendente",
       title: "Dieta de hoje",
       subType: currentMeal!.title,
@@ -36,6 +39,7 @@ export const DashboardPage = () => {
       image: apple,
     },
     {
+      cardType: "lembrete",
       status: "Lembrete",
       title: "Hidratação",
       subType: "Lembre-se de beber água",

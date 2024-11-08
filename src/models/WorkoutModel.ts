@@ -1,5 +1,5 @@
 export class WorkoutModel {
-  status: boolean;
+  status: "Concluído" | "Pendente" | "Lembrete";
   day:
     | "Domingo"
     | "Segunda-feira"
@@ -12,7 +12,7 @@ export class WorkoutModel {
   exercises: ExerciseProps[];
 
   constructor(
-    status: boolean,
+    status: "Concluído" | "Pendente" | "Lembrete",
     day:
       | "Domingo"
       | "Segunda-feira"

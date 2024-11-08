@@ -1,11 +1,11 @@
 export class MealModel {
-  status: boolean;
+  status: "Concluído" | "Pendente" | "Lembrete";
   title: string;
   time: string;
   foods: FoodProps[];
   totalkcal: number;
   constructor(
-    status: boolean,
+    status: "Concluído" | "Pendente" | "Lembrete",
     title: string,
     time: string,
     foods: FoodProps[],
