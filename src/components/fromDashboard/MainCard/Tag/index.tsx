@@ -47,9 +47,7 @@ export const Tag = (props: TagProps) => {
     if (props.cardType === "treino") {
       return (
         <S.Tag cardType={props.cardType}>
-          {todayWorkout?.status === "Lembrete" ? (
-            <img src={bell} alt="" />
-          ) : todayWorkout?.status === "Pendente" ? (
+          {todayWorkout?.status === "Pendente" ? (
             <S.Checkbox
               onClick={handleCheckboxClick}
               src={isChecked ? checked : notChecked}
@@ -75,9 +73,7 @@ export const Tag = (props: TagProps) => {
     if (props.cardType === "dieta") {
       return (
         <S.Tag cardType={props.cardType}>
-          {currentMeal?.status === "Lembrete" ? (
-            <img src={bell} alt="" />
-          ) : currentMeal?.status === "Pendente" ? (
+          {currentMeal?.status === "Pendente" ? (
             <S.Checkbox
               onClick={handleCheckboxClick}
               src={isChecked ? checked : notChecked}
@@ -103,10 +99,8 @@ export const Tag = (props: TagProps) => {
   }
   return (
     <S.Tag cardType={props.cardType}>
-        <img src={bell} alt="" />
-        <S.Content status="Lembrete">
-          Lembrete
-        </S.Content>
+      <img src={bell} alt="" />
+      <S.Content status="Lembrete">Lembrete</S.Content>
     </S.Tag>
   );
 };
