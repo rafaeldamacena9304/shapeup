@@ -39,7 +39,7 @@ export const EditButton = styled.button`
 export const TotalKcal = styled.span`
   display: inline-block;
   position: absolute;
-  bottom: 8px;
+  bottom: 10px;
   right: 50px;
   color: var(--lightGray);
   font-size: 14px;

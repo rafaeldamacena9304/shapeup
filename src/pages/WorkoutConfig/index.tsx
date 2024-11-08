@@ -1,29 +1,16 @@
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store';
+
 import { WorkoutList } from "../../components/fromWorkout/WorkoutList";
 import { DeleteButton } from "../../components/general/DeleteButton";
 import { Header } from "../../components/general/Header";
 import { MainTitle } from "../../components/general/MainTitle";
-import { WorkoutModel } from "../../models/WorkoutModel";
 
-const Workouts: WorkoutModel[] = [
-  {
-    day: "Domingo",
-    modality: "Treino de pernas",
-    exercises: [
-      {
-        name: "Cadeira extensora",
-        reps: 10,
-        sets: 2,
-      },
-      {
-        name: "Cadeira extensora",
-        reps: 10,
-        sets: 2,
-      },
-    ]
-  }
-]
 
 export const WorkoutConfigPage = () => {
+
+  const workouts = useSelector((state: RootState) => state.workout  );
+
   return (
     <>
       <Header />
@@ -32,7 +19,7 @@ export const WorkoutConfigPage = () => {
           <MainTitle content="Meu plano de treino" />
           <DeleteButton content="Resetar treino" />
         </div>
-      <WorkoutList cards={Workouts} />
+      <WorkoutList cards={workouts} />
       </div>
     </>
   );

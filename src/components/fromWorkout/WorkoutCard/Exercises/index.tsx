@@ -8,8 +8,11 @@ export interface ExercisesProps {
 export const Exercises = ({ exercises }: ExercisesProps) => {
   return (
     <S.Exercises>
-      {exercises.map((exercise) => (
-        <span key={exercise.name}>{exercise.name} |</span>
+      {exercises.map((exercise, index) => (
+        <span key={exercise.name}>
+          {exercise.name}
+          {index !== exercises.length - 1 && ", "}
+        </span>
       ))}
     </S.Exercises>
   );
