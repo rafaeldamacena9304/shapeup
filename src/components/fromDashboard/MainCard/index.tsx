@@ -12,7 +12,7 @@ export const MainCard = (props: CardModel) => {
       <Tag status={props.status} />
       <Title image={props.image} title={props.title} />
       <SubType subType={props.subType} />
-      <ContentList content={props.content} />
+      <ContentList workoutContent={props.workoutContent} foodContent={props.foodContent} />
     </S.Card>
   );
 };

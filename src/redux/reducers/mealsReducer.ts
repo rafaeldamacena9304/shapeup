@@ -3,6 +3,7 @@ import { MealModel } from "../../models/MealModel";
 
 const initialState: MealModel[] = [
   {
+    status: false,
     title: "Café da manha",
     time: "6:00",
     foods: [
@@ -26,6 +27,7 @@ const initialState: MealModel[] = [
     totalkcal: 280,
   },
   {
+    status: false,
     title: "Almoço",
     time: "11:30",
     foods: [
@@ -49,6 +51,7 @@ const initialState: MealModel[] = [
     totalkcal: 351,
   },
   {
+    status: false,
     title: "Café da tarde",
     time: "15:30",
     foods: [
@@ -60,7 +63,7 @@ const initialState: MealModel[] = [
         carb: 3,
         fat: 0,
       },
-      {
+      { 
         name: "Iogurte Natural Nestle",
         amount: 160,
         kcal: 50,

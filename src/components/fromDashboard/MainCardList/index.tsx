@@ -16,7 +16,8 @@ export const CardList = ({ cards }: CardListProps) => {
             status={card.status}
             image={card.image}
             subType={card.subType}
-            content={card.content}
+            workoutContent={card.workoutContent}
+            foodContent={card.foodContent}
           />
         </li>
       ))}

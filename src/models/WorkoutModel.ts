@@ -1,4 +1,5 @@
 export class WorkoutModel {
+  status: boolean;
   day:
     | "Domingo"
     | "Segunda-feira"
@@ -11,6 +12,7 @@ export class WorkoutModel {
   exercises: ExerciseProps[];
 
   constructor(
+    status: boolean,
     day:
       | "Domingo"
       | "Segunda-feira"
@@ -25,6 +27,7 @@ export class WorkoutModel {
     this.day = day;
     this.modality = modality;
     this.exercises = exercises;
+    this.status = status;
   }
 }
 

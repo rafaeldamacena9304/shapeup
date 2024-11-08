@@ -3,6 +3,7 @@ import { WorkoutModel } from "../../models/WorkoutModel";
 
 const initialState: WorkoutModel[] = [
   {
+    status: false,
     day: "Domingo",
     modality: "Adicione um novo treino",
     exercises: [
@@ -14,6 +15,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Segunda-feira",
     modality: "Adicione um novo treino",
     exercises: [
@@ -25,6 +27,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Terça-feira",
     modality: "Adicione um novo treino",
     exercises: [
@@ -36,6 +39,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Quarta-feira",
     modality: "Adicione um novo treino",
     exercises: [
@@ -47,6 +51,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Quinta-feira",
     modality: "Adicione um novo treino",
     exercises: [
@@ -58,6 +63,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Sexta-feira",
     modality: "Adicione um novo treino",
     exercises: [
@@ -69,6 +75,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
+    status: false,
     day: "Sábado",
     modality: "Adicione um novo treino",
     exercises: [

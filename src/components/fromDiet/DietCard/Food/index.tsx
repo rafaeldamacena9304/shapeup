@@ -1,9 +1,9 @@
-import { FoodModel } from "../../../../models/MealModel";
+import { FoodProps } from "../../../../models/MealModel";
 import trash from "../../../../assets/images/trash.svg";
 
 import * as S from "./styles";
 
-export const Food = (props: FoodModel) => {
+export const Food = (props: FoodProps) => {
   return (
     <S.Container>
       <S.DeleteButton src={trash} />

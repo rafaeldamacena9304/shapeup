@@ -13,6 +13,7 @@ export const DietList = ({ meals }: DietListProps) => {
       {meals.map((meal) => (
         <li>
           <DietCard
+            status={meal.status}
             title={meal.title}
             time={meal.time}
             foods={meal.foods}

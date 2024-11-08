@@ -1,9 +1,9 @@
 import * as S from "./styles";
-import { FoodModel } from "../../../../models/MealModel";
+import { FoodProps } from "../../../../models/MealModel";
 import { Food } from "../Food";
 
 interface FoodListProps {
-  foods: FoodModel[];
+  foods: FoodProps[];
 }
 
 export const FoodList = ({ foods }: FoodListProps) => {

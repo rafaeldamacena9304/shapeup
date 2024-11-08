@@ -1,14 +1,17 @@
 export class MealModel {
+  status: boolean;
   title: string;
   time: string;
-  foods: FoodModel[];
+  foods: FoodProps[];
   totalkcal: number;
   constructor(
+    status: boolean,
     title: string,
     time: string,
-    foods: FoodModel[],
+    foods: FoodProps[],
     totalkcal: number
   ) {
+    this.status = status;
     this.title = title;
     this.time = time;
     this.foods = foods;
@@ -16,7 +19,7 @@ export class MealModel {
   }
 }
 
-export interface FoodModel {
+export interface FoodProps {
   name: string;
   amount: number;
   kcal: number;
