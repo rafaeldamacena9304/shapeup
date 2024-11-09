@@ -8,4 +8,7 @@ export const ContentList = styled.ul`
   li {
     margin-bottom: 8px;
   }
+  li > span{
+    margin-left:8px;
+  }
 `;

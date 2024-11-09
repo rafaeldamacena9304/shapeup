@@ -51,7 +51,7 @@ const initialState: MealModel[] = [
     totalkcal: 351,
   },
   {
-    status: "Concluído",
+    status: "Pendente",
     title: "Café da tarde",
     time: "15:30",
     foods: [

@@ -63,7 +63,7 @@ const initialState: WorkoutModel[] = [
     ],
   },
   {
-    status: "Concluído",
+    status: "Pendente",
     day: "Sexta-feira",
     modality: "Adicione um novo treino",
     exercises: [
