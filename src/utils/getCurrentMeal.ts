@@ -4,7 +4,7 @@ import { MealModel } from "../models/MealModel";
 export const selectCurrentMeal = (state: RootState): MealModel | undefined => {
   const now = new Date();
 
-  // Primeiro, tenta encontrar a refeição para o horário atual
+  // Try to find meal corresponding at currrent time in state
   const currentMeal = state.meals.find((meal, index, meals) => {
     const mealTime = new Date();
     const [hour, minute] = meal.time.split(":").map(Number);
@@ -15,13 +15,13 @@ export const selectCurrentMeal = (state: RootState): MealModel | undefined => {
       const [nextHour, nextMinute] = meals[index + 1].time.split(":").map(Number);
       nextMealTime.setHours(nextHour, nextMinute, 0, 0);
     } else {
-      nextMealTime.setHours(23, 59, 59, 999); // Última refeição do dia
+      nextMealTime.setHours(23, 59, 59, 999); // Last hour that we can have an meal in that day
     }
 
     return now >= mealTime && now < nextMealTime;
   });
 
-  // Se nenhuma refeição for encontrada para o horário atual, retorne a última refeição
+  // If we in later day and have no meal yet, we can return last meal of previous day so we cannot get errors
   if (!currentMeal) {
     return state.meals[state.meals.length - 1];
   }

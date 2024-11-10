@@ -8,6 +8,7 @@ import * as S from "./styles";
 
 import edit from "../../../assets/images/edit.svg";
 
+//Simple workout card constructed
 export const WorkoutCard = (props: WorkoutModel) => {
   return (
     <S.Card>

@@ -1,5 +1,6 @@
 import { FoodProps } from "../../../../models/MealModel";
 import { ExerciseProps } from "../../../../models/WorkoutModel";
+
 import * as S from "./styles";
 
 interface ContentListProps {
@@ -8,6 +9,7 @@ interface ContentListProps {
   normalContent?: string[];
 }
 
+// Render the content list of the card based in Card Type
 export const ContentList = (props: ContentListProps) => {
   return (
     <S.ContentList>

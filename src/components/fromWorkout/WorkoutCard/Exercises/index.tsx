@@ -8,6 +8,7 @@ export interface ExercisesProps {
 export const Exercises = ({ exercises }: ExercisesProps) => {
   return (
     <S.Exercises>
+      {/* Map exercises and separate with ', '  */}
       {exercises.map((exercise, index) => (
         <span key={exercise.name}>
           {exercise.name}

@@ -92,6 +92,7 @@ export const workoutSlice = createSlice({
   name: "workout",
   initialState,
   reducers: {
+    //Find workout and update status payload based
     updateWorkoutStatus: (
       state,
       action: PayloadAction<{
@@ -106,6 +107,7 @@ export const workoutSlice = createSlice({
         workout.status = action.payload.status;
       }
     },
+    // ...
     resetWorkouts: () => initialState,
   },
 });

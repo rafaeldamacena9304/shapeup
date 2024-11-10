@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTodayWorkout } from "../../../../utils/getCurrentWorkout";
 import { RootState } from "../../../../redux/store";
+import { updateMealStatus } from "../../../../redux/reducers/mealsReducer";
+import { selectCurrentMeal } from "../../../../utils/getCurrentMeal";
+import { updateWorkoutStatus } from "../../../../redux/reducers/workoutReducer";
 
 import * as S from "./styles";
 
 import checked from "../../../../assets/images/checked.png";
 import notChecked from "../../../../assets/images/notChecked.png";
 import bell from "../../../../assets/images/bell.png";
-import { updateMealStatus } from "../../../../redux/reducers/mealsReducer";
-import { selectCurrentMeal } from "../../../../utils/getCurrentMeal";
-import { updateWorkoutStatus } from "../../../../redux/reducers/workoutReducer";
 
 export interface TagProps {
   cardType: "treino" | "dieta" | "lembrete";
@@ -28,6 +28,7 @@ export const Tag = (props: TagProps) => {
     selectCurrentMeal(state)
   );
 
+  //Update card status individually based on its type
   const handleCheckboxClick = () => {
     if (!isChecked) {
       setIsChecked(true);
@@ -43,6 +44,8 @@ export const Tag = (props: TagProps) => {
       }
     }
   };
+
+  // Render the tag status of card based on its type tho, so each one can be updated for itself
   if (props.cardType) {
     if (props.cardType === "treino") {
       return (

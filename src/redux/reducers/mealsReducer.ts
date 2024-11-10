@@ -95,17 +95,20 @@ export const mealsSlice = createSlice({
         status: "Concluído" | "Pendente" | "Lembrete";
       }>
     ) => {
+      //Find current meal and update status based on payload
       const meal = state.find((meal) => meal.title === action.payload.title);
       if (meal) {
         meal.status = action.payload.status;
       }
     },
+    //Find current meal and return self array - the payload meal
     deleteMeal: (state, action: PayloadAction<{ title: string }>) => {
       const meal = state.find((meal) => meal.title === action.payload.title);
       if (meal) {
         return state.filter((meal) => meal.title !== action.payload.title);
       }
     },
+    //Find payload food and returns self array without him
     deleteFood: (
       state,
       action: PayloadAction<{ title: string; foodName: string }>
@@ -117,6 +120,7 @@ export const mealsSlice = createSlice({
         );
       }
     },
+    // Find payload title and time, and return self state + changed meal title and time
     saveEditChanges: (
       state,
       action: PayloadAction<{ title: string; time: string }>

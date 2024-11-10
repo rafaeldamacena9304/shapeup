@@ -14,13 +14,16 @@ import cup from "../../assets/images/cup.svg";
 import apple from "../../assets/images/apple.svg";
 
 export const DashboardPage = () => {
+  // Recover from global stated based on a function that links workout with corresponding day
   const todayWorkout = useSelector((state: RootState) =>
     selectTodayWorkout(state)
   );
+  //Recover from global state based on a function that links with date.time
   const currentMeal = useSelector((state: RootState) =>
     selectCurrentMeal(state)
   );
 
+  // Labeled cards "Bodies", simply the base some things that are static in them
   const cards: CardModel[] = [
     {
       cardType: "treino",

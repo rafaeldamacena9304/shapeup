@@ -5,6 +5,7 @@ interface TitleProps {
   title: string;
 }
 
+//Receive props for card title
 export const Title = (props: TitleProps) => {
   return (
     <S.Title>

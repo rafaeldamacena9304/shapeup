@@ -6,6 +6,7 @@ interface CardListProps {
   cards: CardModel[];
 }
 
+//Card list rendered based on props that will be received in dashboard page
 export const CardList = ({ cards }: CardListProps) => {
   return (
     <S.CardList>
