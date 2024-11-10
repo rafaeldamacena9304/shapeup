@@ -1,17 +1,18 @@
-import { MealModel } from "../../../models/MealModel";
+import { RootState } from "../../../redux/store";
+import { useSelector } from "react-redux";
 import { DietCard } from "../DietCard";
 
 import * as S from "./styles";
 
-interface DietListProps {
-  meals: MealModel[];
-}
 
-export const DietList = ({ meals }: DietListProps) => {
+export const DietList = () => {
+
+  const meals = useSelector((state: RootState) => state.meals)
+
   return (
     <S.DietList>
       {meals.map((meal) => (
-        <li>
+        <li key={meal.title}>
           <DietCard
             status={meal.status}
             title={meal.title}

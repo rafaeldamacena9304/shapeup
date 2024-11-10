@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../redux/store';
+import { useDispatch } from 'react-redux'
 import { resetWorkouts } from '../../redux/reducers/workoutReducer';
 
 import { WorkoutList } from "../../components/fromWorkout/WorkoutList";
@@ -12,7 +11,6 @@ export const WorkoutConfigPage = () => {
 
   const dispatch = useDispatch();
 
-  const workouts = useSelector((state: RootState) => state.workout  );
 
   const handleDeleteButtonClick = () => {
     dispatch(resetWorkouts())
@@ -25,9 +23,9 @@ export const WorkoutConfigPage = () => {
       <div className="container">
         <div className="topContainer">
           <MainTitle content="Meu plano de treino" />
-          <DeleteButton onClick={handleDeleteButtonClick} content="Resetar treino" />
+          <DeleteButton onClick={handleDeleteButtonClick} content="Resetar treinos" />
         </div>
-      <WorkoutList cards={workouts} />
+      <WorkoutList/>
       </div>
     </>
   );

@@ -1,13 +1,13 @@
-import { WorkoutModel } from "../../../models/WorkoutModel";
+import { RootState } from "../../../redux/store";
+import { useSelector } from "react-redux";
 import { WorkoutCard } from "../WorkoutCard";
 
 import * as S from "./styles";
 
-interface WorkoutListProps {
-  cards: WorkoutModel[];
-}
+export const WorkoutList = () => {
 
-export const WorkoutList = ({ cards }: WorkoutListProps) => {
+  const cards = useSelector((state: RootState) => state.workout)
+
   return (
     <S.Container>
       {cards.map((card) => (

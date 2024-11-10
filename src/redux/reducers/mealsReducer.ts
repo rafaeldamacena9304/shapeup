@@ -101,7 +101,7 @@ export const mealsSlice = createSlice({
       }
     },
     deleteMeal: (state, action: PayloadAction<{ title: string }>) => {
-      const meal = state.find((meal) => (meal.title === action.payload.title));
+      const meal = state.find((meal) => meal.title === action.payload.title);
       if (meal) {
         return state.filter((meal) => meal.title !== action.payload.title);
       }
@@ -117,7 +117,18 @@ export const mealsSlice = createSlice({
         );
       }
     },
+    saveEditChanges: (
+      state,
+      action: PayloadAction<{ title: string; time: string }>
+    ) => {
+      return state.map((meal) =>
+        meal.title === action.payload.title
+          ? { ...meal, title: action.payload.title, time: action.payload.time }
+          : meal
+      );
+    },
   },
 });
 
-export const { updateMealStatus, deleteFood, deleteMeal } = mealsSlice.actions;
+export const { updateMealStatus, deleteFood, deleteMeal, saveEditChanges } =
+  mealsSlice.actions;

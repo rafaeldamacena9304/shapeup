@@ -35,7 +35,7 @@ export const DashboardPage = () => {
       status: "Pendente",
       title: "Dieta de hoje",
       subType: currentMeal!.title,
-      foodContent: currentMeal?.foods,
+      foodContent: currentMeal!.foods,
       image: apple,
     },
     {
