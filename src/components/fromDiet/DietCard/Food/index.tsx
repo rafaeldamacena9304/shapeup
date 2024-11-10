@@ -1,12 +1,25 @@
+import { useDispatch } from "react-redux";
+import { deleteFood } from "../../../../redux/reducers/mealsReducer";
 import { FoodProps } from "../../../../models/MealModel";
 import trash from "../../../../assets/images/trash.svg";
 
 import * as S from "./styles";
 
-export const Food = (props: FoodProps) => {
+interface FoodComponentProps extends FoodProps {
+  mealTitle: string;
+}
+
+export const Food = (props: FoodComponentProps) => {
+
+  const dispatch = useDispatch();
+
+  const handleDeleteFoodClick = () => {
+    dispatch(deleteFood({ title: props.mealTitle, foodName: props.name }))
+  }
+
   return (
     <S.Container>
-      <S.DeleteButton src={trash} />
+      <S.DeleteButton onClick={handleDeleteFoodClick} src={trash} />
       <S.Title>
         {props.name} ({props.amount}g)
       </S.Title>

@@ -90,14 +90,34 @@ export const mealsSlice = createSlice({
   reducers: {
     updateMealStatus: (
       state,
-      action: PayloadAction<{ title: string; status: "Concluído" | "Pendente" | "Lembrete" }>
+      action: PayloadAction<{
+        title: string;
+        status: "Concluído" | "Pendente" | "Lembrete";
+      }>
     ) => {
       const meal = state.find((meal) => meal.title === action.payload.title);
       if (meal) {
         meal.status = action.payload.status;
       }
     },
+    deleteMeal: (state, action: PayloadAction<{ title: string }>) => {
+      const meal = state.find((meal) => (meal.title === action.payload.title));
+      if (meal) {
+        return state.filter((meal) => meal.title !== action.payload.title);
+      }
+    },
+    deleteFood: (
+      state,
+      action: PayloadAction<{ title: string; foodName: string }>
+    ) => {
+      const meal = state.find((meal) => meal.title === action.payload.title);
+      if (meal) {
+        meal.foods = meal.foods.filter(
+          (food) => food.name !== action.payload.foodName
+        );
+      }
+    },
   },
 });
 
-export const { updateMealStatus } = mealsSlice.actions;
+export const { updateMealStatus, deleteFood, deleteMeal } = mealsSlice.actions;

@@ -94,7 +94,10 @@ export const workoutSlice = createSlice({
   reducers: {
     updateWorkoutStatus: (
       state,
-      action: PayloadAction<{ day: string; status: "Concluído" | "Pendente" | "Lembrete" }>
+      action: PayloadAction<{
+        day: string;
+        status: "Concluído" | "Pendente" | "Lembrete";
+      }>
     ) => {
       const workout = state.find(
         (workout) => workout.day === action.payload.day
@@ -103,7 +106,8 @@ export const workoutSlice = createSlice({
         workout.status = action.payload.status;
       }
     },
+    resetWorkouts: () => initialState,
   },
 });
 
-export const { updateWorkoutStatus } = workoutSlice.actions;
+export const { updateWorkoutStatus, resetWorkouts } = workoutSlice.actions;
