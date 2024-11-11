@@ -26,4 +26,6 @@ export interface FoodProps {
   protein: number;
   carb: number;
   fat: number;
+  type?: string;
+  onClick?: () => void;
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MealModel } from "../../models/MealModel";
+import { FoodProps, MealModel } from "../../models/MealModel";
 
 const initialState: MealModel[] = [
   {
@@ -114,12 +114,26 @@ export const mealsSlice = createSlice({
       action: PayloadAction<{ title: string; foodName: string }>
     ) => {
       const meal = state.find((meal) => meal.title === action.payload.title);
+
       if (meal) {
+        const foodToDelete = meal.foods.find((food) => food.name === action.payload.foodName)
         meal.foods = meal.foods.filter(
           (food) => food.name !== action.payload.foodName
         );
+        meal.totalkcal -= Number(foodToDelete?.kcal)
       }
     },
+    addFood: (
+      state,
+      action: PayloadAction<{ food: FoodProps; title: string }>
+    ) => {
+      const meal = state.find((meal) => meal.title === action.payload.title);
+      if (meal) {
+        meal.foods = [...meal.foods, action.payload.food];
+        meal.totalkcal = meal.foods.reduce((total, food) => total + Number(food.kcal), 0)
+      }
+    },
+
     // Find payload title and time, and return self state + changed meal title and time
     saveEditChanges: (
       state,
@@ -134,5 +148,10 @@ export const mealsSlice = createSlice({
   },
 });
 
-export const { updateMealStatus, deleteFood, deleteMeal, saveEditChanges } =
-  mealsSlice.actions;
+export const {
+  updateMealStatus,
+  deleteFood,
+  deleteMeal,
+  saveEditChanges,
+  addFood,
+} = mealsSlice.actions;

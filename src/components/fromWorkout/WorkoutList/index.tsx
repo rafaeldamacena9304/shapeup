@@ -6,6 +6,7 @@ import * as S from "./styles";
 
 export const WorkoutList = () => {
 
+  //Use global state here for avoid all prop dilling we can in places that have so many logic like this workout and diet pages
   const cards = useSelector((state: RootState) => state.workout)
 
   return (

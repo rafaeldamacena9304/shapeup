@@ -12,6 +12,9 @@ interface FoodListProps {
 export const FoodList = ({ meal }: FoodListProps) => {
   const { foods } = meal;
 
+  const recalculateAmount = (value: number, amount: number) =>
+    parseFloat(((value / 100) * amount).toFixed(1));
+
   return (
     <S.FoodList>
       {foods.length > 0 ? (
@@ -24,7 +27,8 @@ export const FoodList = ({ meal }: FoodListProps) => {
               protein={food.protein}
               carb={food.carb}
               fat={food.fat}
-              kcal={food.kcal}
+              //recalculate total kcal based on amount gived from props, else this is static
+              kcal={recalculateAmount(food.kcal, food.amount)}
             />
           </li>
         ))
