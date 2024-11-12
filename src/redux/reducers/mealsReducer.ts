@@ -3,6 +3,7 @@ import { FoodProps, MealModel } from "../../models/MealModel";
 
 const initialState: MealModel[] = [
   {
+    id: "1",
     status: "Pendente",
     title: "Café da manha",
     time: "6:00",
@@ -27,6 +28,7 @@ const initialState: MealModel[] = [
     totalkcal: 280,
   },
   {
+    id: "2",
     status: "Pendente",
     title: "Almoço",
     time: "11:30",
@@ -51,6 +53,7 @@ const initialState: MealModel[] = [
     totalkcal: 351,
   },
   {
+    id: "3",
     status: "Pendente",
     title: "Café da tarde",
     time: "15:30",
@@ -88,6 +91,9 @@ export const mealsSlice = createSlice({
   name: "meals",
   initialState,
   reducers: {
+    addMeal : (state, action: PayloadAction<MealModel>) => {
+      return [...state, action.payload]
+    },
     updateMealStatus: (
       state,
       action: PayloadAction<{
@@ -102,10 +108,10 @@ export const mealsSlice = createSlice({
       }
     },
     //Find current meal and return self array - the payload meal
-    deleteMeal: (state, action: PayloadAction<{ title: string }>) => {
-      const meal = state.find((meal) => meal.title === action.payload.title);
+    deleteMeal: (state, action: PayloadAction<{ id: string }>) => {
+      const meal = state.find((meal) => meal.id === action.payload.id);
       if (meal) {
-        return state.filter((meal) => meal.title !== action.payload.title);
+        return state.filter((meal) => meal.id !== action.payload.id);
       }
     },
     //Find payload food and returns self array without him
@@ -154,4 +160,5 @@ export const {
   deleteMeal,
   saveEditChanges,
   addFood,
+  addMeal,
 } = mealsSlice.actions;

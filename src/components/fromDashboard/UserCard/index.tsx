@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ContentGrid } from "./ContentGrid";
 import { Profile } from "./Profile";
-import * as S from "./styles";
-import { RootState } from "../../../redux/store";
 import { useState } from "react";
 import { UserModel } from "../../../models/UserModel";
 import { editInfo } from "../../../redux/reducers/userReducer";
 import { EditingGrid } from "./EditingGrid";
+import { RootState } from "../../../redux/store";
+import * as S from "./styles";
 
 export const UserCard = () => {
   const dispatch = useDispatch();

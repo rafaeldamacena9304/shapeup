@@ -1,16 +1,19 @@
 export class MealModel {
+  id: string
   status: "Concluído" | "Pendente" | "Lembrete";
   title: string;
   time: string;
   foods: FoodProps[];
   totalkcal: number;
   constructor(
+    id: string,
     status: "Concluído" | "Pendente" | "Lembrete",
     title: string,
     time: string,
     foods: FoodProps[],
     totalkcal: number
   ) {
+    this.id = id;
     this.status = status;
     this.title = title;
     this.time = time;

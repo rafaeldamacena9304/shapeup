@@ -11,7 +11,7 @@ import * as S from "./styles";
 import { SearchModal } from "./SearchModal";
 import { EditableMealTitle } from "./EditableMealTitle";
 
-export const DietCard = ({ title, time, totalkcal }: MealModel) => {
+export const DietCard = ({id,  title, time, totalkcal }: MealModel) => {
   const dispatch = useDispatch();
 
   //Popup and Edit state
@@ -22,14 +22,14 @@ export const DietCard = ({ title, time, totalkcal }: MealModel) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newTime, setNewTime] = useState(time);
 
-  // Obtain current meal from global state, based in this element meal itself
+  // Obtain current meal from global state, based in this element meal itself by id
   const meal = useSelector((state: any) =>
-    state.meals.find((meal: MealModel) => meal.title === title)
+    state.meals.find((meal: MealModel) => meal.id === id)
   );
 
   // Deletes a meal
   const handleDeleteButtonClick = () => {
-    dispatch(deleteMeal({ title }));
+    dispatch(deleteMeal({ id }));
   };
 
   // Calculate calories of food based on quantity
@@ -77,7 +77,7 @@ export const DietCard = ({ title, time, totalkcal }: MealModel) => {
         />
         <br />
         {/* Necessary to pass this parameters for FoodList find the meal that it belongs it, which was edited */}
-        <FoodList meal={{ title: newTitle, time: newTime, foods }} />
+        <FoodList meal={{id, title: newTitle, time: newTime, foods }} />
         <S.TotalKcal>Total: {calculateTotalCalories()} kcal</S.TotalKcal>
       </S.Card>
     </>

@@ -1,6 +1,7 @@
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import { DietCard } from "../DietCard";
+import { AddDietButton } from "../AddDietButton";
 
 import * as S from "./styles";
 
@@ -11,10 +12,12 @@ export const DietList = () => {
   const meals = useSelector((state: RootState) => state.meals)
 
   return (
+    <>
     <S.DietList>
       {meals.map((meal) => (
-        <li key={meal.title}>
+        <li key={meal.id}>
           <DietCard
+            id={meal.id}
             status={meal.status}
             title={meal.title}
             time={meal.time}
@@ -24,5 +27,7 @@ export const DietList = () => {
         </li>
       ))}
     </S.DietList>
+    <AddDietButton/>
+    </>
   );
 };
