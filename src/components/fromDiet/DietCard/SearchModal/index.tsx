@@ -7,6 +7,7 @@ import * as S from "./styles";
 
 import search from "../../../../assets/images/search.svg";
 
+
 interface SearchModalProps {
   isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
@@ -35,10 +36,9 @@ export const SearchModal = ({
   // Fetching when user types > 2 characters, to find suggestions for search
   const handleSearch = async (term: string) => {
     setSearchTerm(term);
-    if (term.length > 2) {
-      const encodedTerm = encodeURIComponent(term);
+    if (term.length > 1) {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/search?q=${encodedTerm}`
+        `http://127.0.0.1:5000/api/search?q=${term}`
       );
       const data = (await response).json();
       setSuggestions(await data);
@@ -60,13 +60,14 @@ export const SearchModal = ({
   return (
     <>
       <S.ModalOverlay
-        onClick={() => setIsModalOpen(false)}
+        onClick={() => {setIsModalOpen(false); setSuggestions([]); setSelectedFood(null)}}
         isModalOpen={isModalOpen}
       />
       <S.Content isModalOpen={isModalOpen}>
         <S.SearchBar>
           <img src={search} alt="" />
           <input
+            min="0"
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             type="text"
@@ -87,7 +88,7 @@ export const SearchModal = ({
                   onChange={(e) => setEditedAmount(Number(e.target.value))}
                   type="number"
                   placeholder="100g"
-                />
+                />g
               </S.Value>
             </S.Key>
             <S.Key>

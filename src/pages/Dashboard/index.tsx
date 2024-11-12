@@ -60,16 +60,7 @@ export const DashboardPage = () => {
             <MainTitle content="Olá, Rafael" />
             <p className="subTitle">Pronto para superar os seus limites?</p>
           </div>
-          <UserCard
-            id={1}
-            name="Rafael"
-            age={18}
-            height={161}
-            weight={65}
-            gender="Masculino"
-            bmi={26}
-            bmr={1800}
-          />
+          <UserCard/>
         </div>
         <CardList cards={cards} />
       </div>

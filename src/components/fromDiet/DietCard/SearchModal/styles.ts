@@ -14,13 +14,13 @@ export const ModalOverlay = styled.div<{ isModalOpen: boolean }>`
 `;
 
 export const Content = styled.div<{ isModalOpen: boolean }>`
-  position:absolute;
+  position:fixed;
   padding: 32px;
   width: 360px;
   color: white;
   margin: 0 auto;
   z-index: 3;
-  top:120px;
+  top:60px;
   left:50%;
   transform:translateX(-50%);
   border-radius: 16px;
@@ -89,6 +89,16 @@ export const Key = styled.p`
 export const Value = styled.span`
     color:var(--darkGray);
     font-size:14px;
+
+    input{
+      margin-left:8px;
+      margin-right:8px;
+      max-width:100px;
+      background-color:transparent;
+      border:1px solid white;
+      color:white;
+      padding-left:2px;
+    }
 ` 
 export const AddButton = styled.button`
     width:100%;
