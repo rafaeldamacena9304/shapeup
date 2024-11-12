@@ -54,7 +54,7 @@ export const DietCard = ({id,  title, time, totalkcal }: MealModel) => {
       <SearchModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-        title={title}
+        id={id}
       />
       <S.Card>
         <EditableMealTitle

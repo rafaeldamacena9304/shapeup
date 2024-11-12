@@ -117,9 +117,9 @@ export const mealsSlice = createSlice({
     //Find payload food and returns self array without him
     deleteFood: (
       state,
-      action: PayloadAction<{ title: string; foodName: string }>
+      action: PayloadAction<{ id: string; foodName: string }>
     ) => {
-      const meal = state.find((meal) => meal.title === action.payload.title);
+      const meal = state.find((meal) => meal.title === action.payload.id);
 
       if (meal) {
         const foodToDelete = meal.foods.find((food) => food.name === action.payload.foodName)
@@ -131,9 +131,9 @@ export const mealsSlice = createSlice({
     },
     addFood: (
       state,
-      action: PayloadAction<{ food: FoodProps; title: string }>
+      action: PayloadAction<{ food: FoodProps; id: string }>
     ) => {
-      const meal = state.find((meal) => meal.title === action.payload.title);
+      const meal = state.find((meal) => meal.id === action.payload.id);
       if (meal) {
         meal.foods = [...meal.foods, action.payload.food];
         meal.totalkcal = meal.foods.reduce((total, food) => total + Number(food.kcal), 0)

@@ -6,7 +6,7 @@ import trash from "../../../../assets/images/trash.svg";
 import * as S from "./styles";
 
 interface FoodComponentProps extends FoodProps {
-  mealTitle: string;
+  mealId: string;
 }
 
 export const Food = (props: FoodComponentProps) => {
@@ -14,7 +14,7 @@ export const Food = (props: FoodComponentProps) => {
   const dispatch = useDispatch();
 
   const handleDeleteFoodClick = () => {
-    dispatch(deleteFood({ title: props.mealTitle, foodName: props.name }))
+    dispatch(deleteFood({ id: props.mealId, foodName: props.name }))
   }
 
   return (

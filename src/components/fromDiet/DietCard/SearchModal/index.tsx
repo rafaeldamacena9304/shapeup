@@ -11,13 +11,13 @@ import search from "../../../../assets/images/search.svg";
 interface SearchModalProps {
   isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
-  title: string;
+  id: string;
 }
 
 export const SearchModal = ({
   isModalOpen,
   setIsModalOpen,
-  title,
+  id,
 }: SearchModalProps) => {
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ export const SearchModal = ({
   //Add new food, closes modal and clear selected food
   const handleAddFood = () => {
     dispatch(
-      addFood({ title: title, food: { ...selectedFood, amount: editedAmount } })
+      addFood({ id: id, food: { ...selectedFood, amount: editedAmount } })
     );
     setSelectedFood(null);
     setIsModalOpen(false);

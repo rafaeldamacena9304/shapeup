@@ -22,7 +22,7 @@ export const FoodList = ({ meal }: FoodListProps) => {
         foods.map((food) => (
           <li key={meal.id}>
             <Food
-              mealTitle={meal.title}
+              mealId={meal.id}
               name={food.name}
               amount={food.amount}
               protein={food.protein}
