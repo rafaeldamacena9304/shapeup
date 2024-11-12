@@ -143,10 +143,10 @@ export const mealsSlice = createSlice({
     // Find payload title and time, and return self state + changed meal title and time
     saveEditChanges: (
       state,
-      action: PayloadAction<{ title: string; time: string }>
+      action: PayloadAction<{ id: string; title: string; time: string }>
     ) => {
       return state.map((meal) =>
-        meal.title === action.payload.title
+        meal.id === action.payload.id
           ? { ...meal, title: action.payload.title, time: action.payload.time }
           : meal
       );

@@ -11,4 +11,8 @@ export const Profile = styled.div`
     font-size: 24px;
     font-weight: 500;
   }
+
+  img:hover{
+    cursor:pointer;
+  }
 `;

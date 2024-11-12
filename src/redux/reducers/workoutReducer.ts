@@ -8,7 +8,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -20,7 +20,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -32,7 +32,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -44,7 +44,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -56,7 +56,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -68,7 +68,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },
@@ -80,7 +80,7 @@ const initialState: WorkoutModel[] = [
     modality: "Adicione um novo treino",
     exercises: [
       {
-        name: "Nada por aqui...",
+        name: "Nenhum treino para hoje.",
         reps: 0,
         sets: 0,
       },

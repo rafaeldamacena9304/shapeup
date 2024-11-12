@@ -20,6 +20,7 @@ interface EditMealProps {
   setNewTime: (value: string) => void;
   newTitle: string;
   setNewTitle: (value: string) => void;
+  mealId: string
 }
 
 export const EditableMealTitle = ({
@@ -32,6 +33,7 @@ export const EditableMealTitle = ({
   newTitle,
   setNewTime,
   setNewTitle,
+  mealId
 }: EditMealProps) => {
   const dispatch = useDispatch();
 
@@ -41,7 +43,7 @@ export const EditableMealTitle = ({
 
   // Redux action for editing title and time of the meal
   const handleSaveEditChanges = () => {
-    dispatch(saveEditChanges({ title: newTitle, time: newTime }));
+    dispatch(saveEditChanges({ id: mealId, title: newTitle, time: newTime }));
     setIsEditing(false);
   };
 
