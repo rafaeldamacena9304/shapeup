@@ -10,12 +10,21 @@ import * as S from "./styles";
 export const MainCard = (props: CardModel) => {
   return (
     <S.Card>
-      <Tag cardType={props.cardType}  />
+      <Tag cardType={props.cardType} />
       <Title image={props.image} title={props.title} />
       <SubType subType={props.subType} />
-      
+
       {/* There's three optional props, accoring with the card type, if exists in card, will be rendered */}
-      <ContentList workoutContent={props.workoutContent} foodContent={props.foodContent} normalContent={props.normalContent}/>
+
+      {props.workoutContent ? (
+        <ContentList workoutContent={props.workoutContent} />
+      ) : props.foodContent ? (
+        <ContentList foodContent={props.foodContent} />
+      ) : props.normalContent ? (
+        <ContentList normalContent={props.normalContent} />
+      ) : (
+        <p>Ainda não há nenhum alimento/refeição neste horário</p>
+      )}
     </S.Card>
   );
 };

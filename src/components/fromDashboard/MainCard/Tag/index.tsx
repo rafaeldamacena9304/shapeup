@@ -28,78 +28,67 @@ export const Tag = (props: TagProps) => {
     selectCurrentMeal(state)
   );
 
-  //Update card status individually based on its type
+  // Update card status individually based on its type
   const handleCheckboxClick = () => {
     if (!isChecked) {
       setIsChecked(true);
-      if (props.cardType === "dieta") {
+      if (props.cardType === "dieta" && currentMeal) {
         dispatch(
-          updateMealStatus({ title: currentMeal!.title, status: "Concluído" })
+          updateMealStatus({ title: currentMeal.title, status: "Concluído" })
         );
       }
-      if (props.cardType === "treino") {
+      if (props.cardType === "treino" && todayWorkout) {
         dispatch(
-          updateWorkoutStatus({ day: todayWorkout!.day, status: "Concluído" })
+          updateWorkoutStatus({ day: todayWorkout.day, status: "Concluído" })
         );
       }
     }
   };
 
-  // Render the tag status of card based on its type tho, so each one can be updated for itself
+  // Render the tag status of card based on its type so each one can be updated individually
   if (props.cardType) {
     if (props.cardType === "treino") {
       return (
         <S.Tag cardType={props.cardType}>
-          {todayWorkout?.status === "Pendente" ? (
+          {todayWorkout && todayWorkout.status === "Pendente" ? (
             <S.Checkbox
               onClick={handleCheckboxClick}
               src={isChecked ? checked : notChecked}
             />
-          ) : todayWorkout?.status === "Concluído" ? (
+          ) : todayWorkout && todayWorkout.status === "Concluído" ? (
             <S.Checkbox src={checked} />
           ) : (
             <></>
           )}
 
-          {isChecked ? (
-            <S.Content status={todayWorkout!.status}>
-              {todayWorkout?.status}
-            </S.Content>
-          ) : (
-            <S.Content status={todayWorkout!.status}>
-              {todayWorkout?.status}
-            </S.Content>
-          )}
+          <S.Content status={todayWorkout?.status || "Pendente"}>
+            {todayWorkout?.status || "Pendente"}
+          </S.Content>
         </S.Tag>
       );
     }
     if (props.cardType === "dieta") {
       return (
         <S.Tag cardType={props.cardType}>
-          {currentMeal?.status === "Pendente" ? (
+          {currentMeal && currentMeal.status === "Pendente" ? (
             <S.Checkbox
               onClick={handleCheckboxClick}
               src={isChecked ? checked : notChecked}
             />
-          ) : currentMeal?.status === "Concluído" ? (
+          ) : currentMeal && currentMeal.status === "Concluído" ? (
             <S.Checkbox src={checked} />
           ) : (
             <></>
           )}
 
-          {isChecked ? (
-            <S.Content status={currentMeal!.status}>
-              {currentMeal?.status}
-            </S.Content>
-          ) : (
-            <S.Content status={currentMeal!.status}>
-              {currentMeal?.status}
-            </S.Content>
-          )}
+          <S.Content status={currentMeal?.status || "Pendente"}>
+            {currentMeal?.status || "Pendente"}
+          </S.Content>
         </S.Tag>
       );
     }
   }
+
   return (
     <S.Tag cardType={props.cardType}>
       <img src={bell} alt="" />
