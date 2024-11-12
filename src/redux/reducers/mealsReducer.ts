@@ -117,9 +117,9 @@ export const mealsSlice = createSlice({
     //Find payload food and returns self array without him
     deleteFood: (
       state,
-      action: PayloadAction<{ id: string; foodName: string }>
+      action: PayloadAction<{ mealId: string; foodName: string }>
     ) => {
-      const meal = state.find((meal) => meal.title === action.payload.id);
+      const meal = state.find((meal) => meal.id === action.payload.mealId);
 
       if (meal) {
         const foodToDelete = meal.foods.find((food) => food.name === action.payload.foodName)

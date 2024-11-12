@@ -14,7 +14,7 @@ export const Food = (props: FoodComponentProps) => {
   const dispatch = useDispatch();
 
   const handleDeleteFoodClick = () => {
-    dispatch(deleteFood({ id: props.mealId, foodName: props.name }))
+    dispatch(deleteFood({ mealId: props.mealId, foodName: props.name }))
   }
 
   return (
