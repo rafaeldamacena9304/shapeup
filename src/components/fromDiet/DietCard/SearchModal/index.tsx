@@ -38,7 +38,7 @@ export const SearchModal = ({
     setSearchTerm(term);
     if (term.length > 1) {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/search?q=${term}`
+        `http://127.0.0.1:5000/api/searchFood?q=${term}`
       );
       const data = (await response).json();
       setSuggestions(await data);

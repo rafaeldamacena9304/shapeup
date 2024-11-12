@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { WorkoutModel } from "../../models/WorkoutModel";
+import { ExerciseProps, WorkoutModel } from "../../models/WorkoutModel";
 
 const initialState: WorkoutModel[] = [
   {
@@ -109,7 +109,14 @@ export const workoutSlice = createSlice({
     },
     // ...
     resetWorkouts: () => initialState,
+    addWorkoutAtDay: (state, action: PayloadAction<{day: string; exercises: ExerciseProps[]; modality:string}>) => {
+      const workout = state.find((workout) => workout.day === action.payload.day)
+      if (workout){
+        workout.exercises = action.payload.exercises
+        workout.modality = action.payload.modality
+      }
+    } 
   },
 });
 
-export const { updateWorkoutStatus, resetWorkouts } = workoutSlice.actions;
+export const { updateWorkoutStatus, resetWorkouts, addWorkoutAtDay } = workoutSlice.actions;

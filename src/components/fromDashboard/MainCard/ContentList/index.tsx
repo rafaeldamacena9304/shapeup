@@ -16,7 +16,7 @@ export const ContentList = (props: ContentListProps) => {
       {props.workoutContent && props.workoutContent.length > 0 ? (
         props.workoutContent.map((item) => (
           <li key={item.name}>
-            {item.name}
+            {item.name} <br />
             {item.sets !== 0 && item.reps !== 0 && (
               <span>
                 {item.sets} sets x {item.reps} reps

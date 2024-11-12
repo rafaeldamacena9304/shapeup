@@ -10,13 +10,14 @@ export const ModalOverlay = styled.div<{isModalOpen: boolean}>`
   background-color: rgba(0, 0, 0, 0.9);
   display: ${props => props.isModalOpen ? 'block' : 'none'};
 `;
-export const Content = styled.div`
+export const Content = styled.div<{isModalOpen: boolean}>`
   position: fixed;
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 4;
   padding: 32px;
+  display:${props => props.isModalOpen ? "block" : "none"};
 
   h3 {
     font-weight: bold;
@@ -27,10 +28,12 @@ export const Content = styled.div`
   }
 `;
 export const ExerciseList = styled.ul`
+    position:relative;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap: 24px;
     margin-bottom:48px;
+    z-index: 3;
 `
 export const ExerciseContainer = styled.div`
   border: 1px solid white;
@@ -40,8 +43,8 @@ export const ExerciseContainer = styled.div`
 
   label {
     font-size: 16px;
-    color: var(--gray);
-    font-weight: 500;
+    color: var(--lightGray);
+    font-weight: bold;
   }
   select {
     display: inline-block;
@@ -50,9 +53,10 @@ export const ExerciseContainer = styled.div`
     background-color: transparent;
     border: 1px solid var(--blue);
     border-radius: 4px;
-    color: var(--darkGray);
-    margin-top: 6px;
+    color: var(--gray);
+    margin-top: 12px;
     margin-bottom: 16px;
+    font-weight:500;
   }
 `;
 export const InputContainer = styled.div`
@@ -61,6 +65,7 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
+  margin-bottom:16px;
 
   input {
     width: 45%;
@@ -73,23 +78,21 @@ export const InputContainer = styled.div`
 `;
 export const AddButton = styled.div`
     display:flex;
-    flex-direction:column;
     align-items: center;
-    justify-content: center;
-
+    
     &:hover{
         cursor:pointer;
     }
 
     span{
-        color:var(--gray);
-        font-size:20px;
+        color:#00FF99;
+        font-size:16px;
         font-weight:bold;
     }
 
     img{
-        width:64px;
-        height:64px;
+        width:24px;
+        height:24px;
     }
 `
 export const SaveButton = styled.button`
@@ -101,4 +104,38 @@ export const SaveButton = styled.button`
     font-weight:bold;
     color:white;
     background-image: var(--blueGradient);
+
+    &:hover{
+      cursor:pointer;
+    }
+`
+export const FinalList = styled.ul`
+  color:white;
+  padding:16px;
+  border:1px solid var(--blue);
+  border-radius:8px;
+  list-style: none;
+  max-height:280px;
+  overflow-y: scroll;
+
+  h3{
+    font-size:16px;
+    color:var(--gray);
+    font-weight:bold;
+    text-align:start
+  }
+  li{
+    font-size:14px;
+    color:var(--gray);
+    margin-bottom:4px;
+    display:flex;
+    align-items: center;
+    font-weight:600;  
+
+    img{
+      margin-right:8px;
+      height:32px;
+      width:20px;
+    }
+  }
 `
