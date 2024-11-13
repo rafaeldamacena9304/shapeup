@@ -1,12 +1,12 @@
 import * as S from "./styles";
 
-import add from "../../../assets/images/add.svg";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ExerciseProps, WorkoutModel } from "../../../models/WorkoutModel";
+import { useDispatch } from "react-redux";
+import { ExerciseProps } from "../../../models/WorkoutModel";
 
-import check from "../../../assets/images/check.svg";
 import { addWorkoutAtDay } from "../../../redux/reducers/workoutReducer";
+import { ExerciseForm } from "./ExerciseForm";
+import { FinalList } from "./FinalList";
 
 interface WorkoutModalProps {
   isModalOpen: boolean;
@@ -24,22 +24,23 @@ interface WorkoutModalProps {
 export const WorkoutModal = (props: WorkoutModalProps) => {
   const dispatch = useDispatch();
 
-  const [workoutData, setWorkoutData] = useState<{ [key: string]: string[] }>(
-    {}
-  );
+  // Props for ExerciseForm, stores in a each input in temporary data
   const [selectedGroup, setSelectedGroup] = useState<string>("");
   const [selectedExercise, setSelectedExercise] = useState<string>("");
   const [tempReps, setTempReps] = useState(1);
   const [tempSets, setTempSets] = useState(1);
 
-
-  const [tempExercises, setTempExercises] = useState<ExerciseProps[]>([]);
+  // stores temporary data in a temp object
   const [tempExercise, setTempExercise] = useState<ExerciseProps>({
     name: selectedExercise,
     reps: tempReps,
     sets: tempSets,
   });
+  
+  // temp array for receive current exercise
+  const [tempExercises, setTempExercises] = useState<ExerciseProps[]>([]);
 
+  // store current exercises to array and clears it to fill the next
   const handleAddExerciseToList = () => {
     if (selectedExercise !== "" && selectedGroup !== "") {
       setTempExercises([...tempExercises, tempExercise]);
@@ -52,15 +53,19 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
     }
   };
 
+  // Send exercise to global state according with current day of the week
   const handleSaveWorkout = () => {
-    dispatch(addWorkoutAtDay({ day: props.day, exercises: tempExercises, modality: "Exercícios" }));
+    dispatch(
+      addWorkoutAtDay({
+        day: props.day,
+        exercises: tempExercises,
+        modality: "Exercícios",
+      })
+    );
     setTempExercises([]);
   };
-
-  useEffect(() => {
-    console.log(tempExercises);
-  }, [tempExercises]);
-
+  
+  // Stores the inputs data in current temp exercises to save them into array
   useEffect(() => {
     setTempExercise({
       name: selectedExercise,
@@ -69,11 +74,7 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
     });
   }, [selectedExercise, setTempExercise, tempReps, tempSets]);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/searchWorkout")
-      .then((response) => response.json())
-      .then((data) => setWorkoutData(data));
-  }, []);
+
 
   return (
     <>
@@ -84,63 +85,16 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
       <S.Content isModalOpen={props.isModalOpen}>
         <h3>Registrar treino do dia</h3>
         <S.ExerciseList>
-          <S.ExerciseContainer>
-            <div>
-              <label htmlFor="exerciseGroup">Grupo do exercício:</label>
-              <select
-                value={selectedGroup}
-                onChange={(e) => {
-                  setSelectedGroup(e.target.value);
-                  setSelectedExercise("");
-                }}
-                name=""
-                id="exerciseGroup"
-              >
-                <option value="">Selecione um grupo...</option>
-                {Object.keys(workoutData).map((group) => (
-                  <option key={group} value={group}>
-                    {group}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="exercise">Exercício:</label>
-              <select
-                value={selectedExercise}
-                onChange={(e) => setSelectedExercise(e.target.value)}
-                disabled={!selectedGroup}
-                name=""
-                id="exercise"
-              >
-                <>
-                  <option value="">Selecione um exercício...</option>
-                  {selectedGroup &&
-                    workoutData[selectedGroup]?.map((exercise) => (
-                      <option key={exercise} value={exercise}>
-                        {exercise}
-                      </option>
-                    ))}
-                </>
-              </select>
-            </div>
-            <S.InputContainer>
-              <input min="1" type="number" placeholder="Séries" />
-              <input min="1" type="number" placeholder="Repetições" />
-            </S.InputContainer>
-            <S.AddButton onClick={handleAddExerciseToList}>
-              <img src={add} alt="" /> <span>Adicionar à lista</span>
-            </S.AddButton>
-          </S.ExerciseContainer>
-          <S.FinalList>
-            <h3>Exercícios adicionados:</h3>
-            {tempExercises.map((exercise) => (
-              <li key={exercise.name}>
-                <img src={check} alt="" />
-                {exercise.name}
-              </li>
-            ))}
-          </S.FinalList>
+          {/* Search and add exercises with local state  */}
+          <ExerciseForm
+            handleAddExerciseToList={handleAddExerciseToList}
+            selectedExercise={selectedExercise}
+            selectedGroup={selectedGroup}
+            setSelectedExercise={setSelectedExercise}
+            setSelectedGroup={setSelectedGroup}
+          />
+          {/* Array of temp exercises before we send them to global state  */}
+        <FinalList tempExercises={tempExercises} />
         </S.ExerciseList>
         <S.SaveButton onClick={handleSaveWorkout}>Salvar treino</S.SaveButton>
       </S.Content>
