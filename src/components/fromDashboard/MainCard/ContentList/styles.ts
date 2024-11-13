@@ -7,10 +7,10 @@ export const ContentList = styled.ul`
 
   li {
     margin-bottom: 8px;
-    font-weight:600;
+    font-weight: 600;
   }
-  li > span{
-    margin-left:12px;
-    font-weight:400;
+  li > span {
+    margin-left: 12px;
+    font-weight: 400;
   }
 `;

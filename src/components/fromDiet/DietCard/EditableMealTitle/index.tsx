@@ -20,7 +20,7 @@ interface EditMealProps {
   setNewTime: (value: string) => void;
   newTitle: string;
   setNewTitle: (value: string) => void;
-  mealId: string
+  mealId: string;
 }
 
 export const EditableMealTitle = ({
@@ -33,7 +33,7 @@ export const EditableMealTitle = ({
   newTitle,
   setNewTime,
   setNewTitle,
-  mealId
+  mealId,
 }: EditMealProps) => {
   const dispatch = useDispatch();
 

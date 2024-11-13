@@ -7,7 +7,6 @@ import * as S from "./styles";
 
 import search from "../../../../assets/images/search.svg";
 
-
 interface SearchModalProps {
   isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
@@ -60,7 +59,11 @@ export const SearchModal = ({
   return (
     <>
       <S.ModalOverlay
-        onClick={() => {setIsModalOpen(false); setSuggestions([]); setSelectedFood(null)}}
+        onClick={() => {
+          setIsModalOpen(false);
+          setSuggestions([]);
+          setSelectedFood(null);
+        }}
         isModalOpen={isModalOpen}
       />
       <S.Content isModalOpen={isModalOpen}>
@@ -88,7 +91,8 @@ export const SearchModal = ({
                   onChange={(e) => setEditedAmount(Number(e.target.value))}
                   type="number"
                   placeholder="100g"
-                />g
+                />
+                g
               </S.Value>
             </S.Key>
             <S.Key>

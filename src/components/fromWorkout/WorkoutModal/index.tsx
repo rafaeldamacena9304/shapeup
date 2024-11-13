@@ -36,7 +36,7 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
     reps: tempReps,
     sets: tempSets,
   });
-  
+
   // temp array for receive current exercise
   const [tempExercises, setTempExercises] = useState<ExerciseProps[]>([]);
 
@@ -64,7 +64,7 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
     );
     setTempExercises([]);
   };
-  
+
   // Stores the inputs data in current temp exercises to save them into array
   useEffect(() => {
     setTempExercise({
@@ -73,8 +73,6 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
       sets: tempSets,
     });
   }, [selectedExercise, setTempExercise, tempReps, tempSets]);
-
-
 
   return (
     <>
@@ -94,7 +92,7 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
             setSelectedGroup={setSelectedGroup}
           />
           {/* Array of temp exercises before we send them to global state  */}
-        <FinalList tempExercises={tempExercises} />
+          <FinalList tempExercises={tempExercises} />
         </S.ExerciseList>
         <S.SaveButton onClick={handleSaveWorkout}>Salvar treino</S.SaveButton>
       </S.Content>

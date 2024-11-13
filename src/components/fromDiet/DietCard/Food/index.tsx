@@ -10,12 +10,11 @@ interface FoodComponentProps extends FoodProps {
 }
 
 export const Food = (props: FoodComponentProps) => {
-
   const dispatch = useDispatch();
 
   const handleDeleteFoodClick = () => {
-    dispatch(deleteFood({ mealId: props.mealId, foodName: props.name }))
-  }
+    dispatch(deleteFood({ mealId: props.mealId, foodName: props.name }));
+  };
 
   return (
     <S.Container>

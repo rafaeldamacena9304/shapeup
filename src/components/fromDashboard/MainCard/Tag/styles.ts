@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-export const Tag = styled.div<{cardType: string}>`
+export const Tag = styled.div<{ cardType: string }>`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
 
-  img{
-    margin-right:12px;
+  img {
+    margin-right: 12px;
   }
 `;
 
-export const Content = styled.span<{status: string}>`
+export const Content = styled.span<{ status: string }>`
   background-image: ${(props) =>
     props.status === "Concluído"
       ? "var(--greenGradient)"

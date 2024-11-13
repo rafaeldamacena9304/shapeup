@@ -19,22 +19,23 @@ export const ExerciseForm = ({
   setSelectedGroup,
   handleAddExerciseToList,
 }: ExerciseContainerProps) => {
+  const [workoutData, setWorkoutData] = useState<{ [key: string]: string[] }>(
+    {}
+  );
 
-    const [workoutData, setWorkoutData] = useState<{ [key: string]: string[]}>({})
-
-    // Recovers object type of workouts from api
-    useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/searchWorkout")
-          .then((response) => response.json())
-          .then((data) => setWorkoutData(data));
-      }, []);
+  // Recovers object type of workouts from api
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/api/searchWorkout")
+      .then((response) => response.json())
+      .then((data) => setWorkoutData(data));
+  }, []);
 
   return (
     <S.ExerciseContainer>
       <div>
         <label htmlFor="exerciseGroup">Grupo do exercício:</label>
         <select
-        // Here in each of inputs we store temporary data in local state
+          // Here in each of inputs we store temporary data in local state
           value={selectedGroup}
           onChange={(e) => {
             setSelectedGroup(e.target.value);

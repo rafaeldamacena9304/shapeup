@@ -27,7 +27,11 @@ export const WorkoutCard = (props: WorkoutCardProps) => {
 
   return (
     <>
-      <WorkoutModal day={props.day} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <WorkoutModal
+        day={props.day}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
       <S.Card>
         <S.EditButton
           onClick={() => setIsModalOpen(true)}

@@ -3,10 +3,17 @@ import { Food } from "../Food";
 
 interface FoodListProps {
   meal: {
-    id:string;
+    id: string;
     title: string;
     time: string;
-    foods: Array<{ name: string; amount: number; protein: number; carb: number; fat: number; kcal: number }>;
+    foods: Array<{
+      name: string;
+      amount: number;
+      protein: number;
+      carb: number;
+      fat: number;
+      kcal: number;
+    }>;
   };
 }
 

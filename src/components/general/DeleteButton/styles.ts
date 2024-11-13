@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{spacement?: string}>`
-  padding: ${props => props.spacement ? props.spacement : '18px 0'};
+export const Container = styled.div<{ spacement?: string }>`
+  padding: ${(props) => (props.spacement ? props.spacement : "18px 0")};
   display: flex;
   align-items: center;
-  display:inline-block;
-  margin-bottom:8px;
+  display: inline-block;
+  margin-bottom: 8px;
 
   &:hover {
     cursor: pointer;

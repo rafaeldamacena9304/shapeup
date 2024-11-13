@@ -38,9 +38,9 @@ export const ContentList = (props: ContentListProps) => {
         <li>Nenhum alimento adicionado.</li>
       ) : null}
 
-      {props.normalContent && props.normalContent.length > 0 ? (
-        props.normalContent.map((item) => <li key={item}>{item}</li>)
-      ) : null}
+      {props.normalContent && props.normalContent.length > 0
+        ? props.normalContent.map((item) => <li key={item}>{item}</li>)
+        : null}
     </S.ContentList>
   );
 };

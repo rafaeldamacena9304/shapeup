@@ -11,7 +11,7 @@ import * as S from "./styles";
 import { SearchModal } from "./SearchModal";
 import { EditableMealTitle } from "./EditableMealTitle";
 
-export const DietCard = ({id,  title, time, totalkcal }: MealModel) => {
+export const DietCard = ({ id, title, time, totalkcal }: MealModel) => {
   const dispatch = useDispatch();
 
   //Popup and Edit state
@@ -78,7 +78,7 @@ export const DietCard = ({id,  title, time, totalkcal }: MealModel) => {
         />
         <br />
         {/* Necessary to pass this parameters for FoodList find the meal that it belongs it, which was edited */}
-        <FoodList meal={{id, title: newTitle, time: newTime, foods }} />
+        <FoodList meal={{ id, title: newTitle, time: newTime, foods }} />
         <S.TotalKcal>Total: {calculateTotalCalories()} kcal</S.TotalKcal>
       </S.Card>
     </>
