@@ -63,7 +63,7 @@
       const isUserLogged = async () => {
         try {
           const response = await fetch(
-            "http://127.0.0.1:5000/api/check_credentials",
+            "https://shapeup-backend.vercel.app//api/check_credentials",
             {
               method: "GET",
               headers: { "Content-Type": "application/json" },
