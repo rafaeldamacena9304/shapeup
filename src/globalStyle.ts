@@ -41,6 +41,17 @@ export const GlobalStyle = createGlobalStyle`
         background-clip:text;
     }
 
+    // Home
+    .login{
+        color:var(--gray);
+        font-weight:600;
+
+        span{
+            text-decoration:underline;
+            cursor:pointer;
+        }
+    }
+
     //Dashboard style
 
     .subTitle{
