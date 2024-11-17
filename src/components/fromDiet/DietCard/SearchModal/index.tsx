@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FoodProps } from "../../../../models/MealModel";
 import { useDispatch } from "react-redux";
 import { addFood } from "../../../../redux/reducers/mealsReducer";
@@ -20,36 +20,43 @@ export const SearchModal = ({
 }: SearchModalProps) => {
   const dispatch = useDispatch();
 
-  // Variables for search term, suggestions, and selected food
+  // Associated with search and suggestions, and select food that user wants
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<FoodProps[]>([]);
   const [selectedFood, setSelectedFood] = useState<any>(null);
+  const [foodsData, setFoodsData] = useState<FoodProps[]>([]);
 
-  // Value for the dynamic amount that the user enters
+  // Value for the dinamic amount value in the input typed by user
   const [editedAmount, setEditedAmount] = useState(100);
 
-  // Recalculate the nutrients of the food based on the entered amount
+  // Load foods data from local JSON file
+  useEffect(() => {
+    const loadFoodsData = async () => {
+      const response = await fetch("/src/assets/data/foods.json");
+      const data = await response.json();
+      setFoodsData(data);
+    };
+    loadFoodsData();
+  }, []);
+
+  // Recalculate nutrients of the food based on amount typed by user
   const recalculateNutrients = (value: number) =>
     parseFloat(((value / 100) * editedAmount).toFixed(1));
 
-  // Function to fetch suggestions from the JSON instead of API
-  const handleSearch = async (term: string) => {
+  // Fetching when user types > 2 characters, to find suggestions for search
+  const handleSearch = (term: string) => {
     setSearchTerm(term);
     if (term.length > 1) {
-      // Simulating the process of retrieving data from a local JSON
-      const response = await fetch("/path/to/your/json/data.json");
-      const data = await response.json();
-      // Filter data based on search term
-      const filteredSuggestions = data.filter((food: any) =>
+      const filteredSuggestions = foodsData.filter((food) =>
         food.name.toLowerCase().includes(term.toLowerCase())
       );
       setSuggestions(filteredSuggestions);
-    } else if (term.length < 2) {
+    } else {
       setSuggestions([]);
     }
   };
 
-  // Add selected food, close modal, and reset values
+  // Add new food, closes modal and clear selected food
   const handleAddFood = () => {
     dispatch(
       addFood({ id: id, food: { ...selectedFood, amount: editedAmount } })
@@ -77,17 +84,17 @@ export const SearchModal = ({
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             type="text"
-            placeholder="Search for food"
+            placeholder="Busque um alimento"
           />
         </S.SearchBar>
-        {/* Display selected food details */}
+        {/* Food that user has selected */}
         {selectedFood && (
           <>
             <S.Title>
               {selectedFood.name} - {selectedFood.type}
             </S.Title>
             <S.Key>
-              Quantity:
+              Quantidade:
               <S.Value>
                 <input
                   required
@@ -99,26 +106,26 @@ export const SearchModal = ({
               </S.Value>
             </S.Key>
             <S.Key>
-              Protein:{" "}
+              Proteína:{" "}
               <S.Value>{recalculateNutrients(selectedFood.protein)}g</S.Value>
             </S.Key>
             <S.Key>
-              Carbohydrates:{" "}
+              Carboidratos:{" "}
               <S.Value>{recalculateNutrients(selectedFood.carb)}g</S.Value>
             </S.Key>
             <S.Key>
-              Fat:{" "}
+              Gordura:{" "}
               <S.Value>{recalculateNutrients(selectedFood.fat)}g</S.Value>
             </S.Key>
             <S.Key>
-              Calories:{" "}
+              Calorias:{" "}
               <S.Value>{recalculateNutrients(selectedFood.kcal)}kcal</S.Value>
             </S.Key>
-            <S.AddButton onClick={handleAddFood}>Add</S.AddButton>
+            <S.AddButton onClick={handleAddFood}>Adicionar</S.AddButton>
           </>
         )}
-        {/* Display search suggestions below the search bar */}
-        {suggestions.length > 2 && (
+        {/* Suggestions showing below search bar */}
+        {suggestions.length > 0 && (
           <S.Suggestions>
             {suggestions.map((food) => (
               <li
@@ -134,7 +141,7 @@ export const SearchModal = ({
                 </span>
                 <br />
                 <span>P:</span> {food.protein}g | <span>C: </span>
-                {food.carb}g | <span>F: </span>
+                {food.carb}g | <span>G: </span>
                 {food.fat}g | {food.kcal}kcal
               </li>
             ))}
