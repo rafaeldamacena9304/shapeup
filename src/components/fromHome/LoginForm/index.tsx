@@ -44,8 +44,8 @@ export const LoginForm = ({
     e.preventDefault();
 
     const url = isLogin
-      ? "https://shapeup-backend.vercel.app//api/login"
-      : "https://shapeup-backend.vercel.app//api/register";
+      ? "http://89.116.186.249:2000/api/login"
+      : "https://89.116.186.249:2000/api/register";
     const payload = isLogin
       ? { email: formData.email, password: formData.password }
       : formData;
