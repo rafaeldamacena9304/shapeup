@@ -1,7 +1,10 @@
+import { useState } from "react";
+
+import workoutDataFromJson from "../../../../assets/data/workouts.json";
+
 import * as S from "./styles";
 
 import add from "../../../../assets/images/add.svg";
-import { useEffect, useState } from "react";
 
 //Props will be received
 interface ExerciseContainerProps {
@@ -19,16 +22,8 @@ export const ExerciseForm = ({
   setSelectedGroup,
   handleAddExerciseToList,
 }: ExerciseContainerProps) => {
-  const [workoutData, setWorkoutData] = useState<{ [key: string]: string[] }>(
-    {}
-  );
-
+  const workoutData = workoutDataFromJson;
   // Recovers object type of workouts from api
-  useEffect(() => {
-    fetch("https://valorknight.com.br/api/searchWorkout")
-      .then((response) => response.json())
-      .then((data) => setWorkoutData(data));
-  }, []);
 
   return (
     <S.ExerciseContainer>

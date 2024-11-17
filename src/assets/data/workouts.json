@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "67342d1d7858a4154dfd7993"
+  },
+  "Ombros": [
+    "Desenvolvimento Militar (Deltoide Anterior)",
+    "Elevação Lateral (Deltoide Médio)",
+    "Elevação Frontal (Deltoide Anterior)",
+    "Remada Alta (Trapézio e Deltoide Posterior)",
+    "Crucifixo Invertido (Deltoide Posterior)",
+    "Arnold Press (Deltoide Anterior e Médio)",
+    "Levantamento Lateral com Halteres (Deltoide Médio)"
+  ],
+  "Bíceps": [
+    "Rosca Direta",
+    "Rosca Martelo",
+    "Rosca Scott",
+    "Rosca Concentrada",
+    "Rosca Inversa"
+  ],
+  "Tríceps": [
+    "Tríceps Pulley",
+    "Tríceps Francês",
+    "Mergulho (Dips)",
+    "Tríceps Testa",
+    "Tríceps Coice"
+  ],
+  "Quadríceps": [
+    "Agachamento Livre (Quadríceps)",
+    "Leg Press (Quadríceps)",
+    "Cadeira Extensora (Quadríceps)",
+    "Afundo (Quadríceps e Glúteos)",
+    "Agachamento Búlgaro (Quadríceps)",
+    "Agachamento Frontal (Quadríceps)",
+    "Hack Machine (Quadríceps)"
+  ],
+  "Posterior de Coxas": [
+    "Stiff (Posterior de Coxa e Glúteos)",
+    "Cadeira Flexora (Posterior de Coxa)",
+    "Levantamento Terra (Posterior de Coxa e Glúteos)",
+    "Glúteo na Polia (Posterior de Coxa)",
+    "Leg Curl (Posterior de Coxa)"
+  ],
+  "Panturrilha": [
+    "Panturrilha em Pé",
+    "Panturrilha Sentado",
+    "Panturrilha no Leg Press",
+    "Panturrilha na Máquina"
+  ],
+  "Glúteos": [
+    "Ponte para Glúteos (Glúteos e Posterior de Coxa)",
+    "Levantamento Terra (Glúteos e Posterior de Coxa)",
+    "Agachamento Livre (Glúteos e Quadríceps)",
+    "Afundo (Glúteos e Quadríceps)",
+    "Glúteo na Polia (Glúteos)",
+    "Kickback de Glúteos (Glúteos)"
+  ],
+  "Peitoral": [
+    "Supino Reto (Peitoral Maior)",
+    "Supino Inclinado (Peitoral Superior)",
+    "Supino Declinado (Peitoral Inferior)",
+    "Flexão de Braços (Peitoral Maior)",
+    "Crucifixo (Peitoral Maior)",
+    "Peck Deck (Peitoral Maior)",
+    "Mergulho (Dips) (Peitoral Inferior)"
+  ],
+  "Costas": [
+    "Puxada na Barra Fixa (Latíssimo Dorsal)",
+    "Remada Curvada (Dorsal e Trapézio)",
+    "Remada Unilateral (Latíssimo Dorsal)",
+    "Remada Sentada (Dorsal)",
+    "Puxada na Polia Alta (Latíssimo Dorsal)",
+    "Barra Fixa (Latíssimo Dorsal)",
+    "Encolhimento de Ombros (Trapézio)"
+  ]
+}]
