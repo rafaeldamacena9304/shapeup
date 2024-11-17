@@ -1,12 +1,9 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import workoutDataFromJson from "../../../../assets/data/workouts.json";
-
 import * as S from "./styles";
-
 import add from "../../../../assets/images/add.svg";
 
-//Props will be received
+// Props will be received
 interface ExerciseContainerProps {
   selectedGroup: string;
   selectedExercise: string;
@@ -22,19 +19,25 @@ export const ExerciseForm = ({
   setSelectedGroup,
   handleAddExerciseToList,
 }: ExerciseContainerProps) => {
-  const workoutData = workoutDataFromJson;
-  // Recovers object type of workouts from api
+  const [workoutData, setWorkoutData] = useState<{ [key: string]: string[] }>({});
+
+  // Carregar os dados do JSON assim que o componente for montado
+  useEffect(() => {
+    // workoutDataFromJson é um array com um único objeto, então pegamos o primeiro item
+    const data = workoutDataFromJson[0]; // O JSON é um array com um único objeto
+    setWorkoutData(data); // Agora, o workoutData é um objeto onde as chaves são os grupos de exercício
+  }, []);
 
   return (
     <S.ExerciseContainer>
       <div>
         <label htmlFor="exerciseGroup">Grupo do exercício:</label>
         <select
-          // Here in each of inputs we store temporary data in local state
+          // Aqui em cada input, armazenamos dados temporários no estado local
           value={selectedGroup}
           onChange={(e) => {
             setSelectedGroup(e.target.value);
-            setSelectedExercise("");
+            setSelectedExercise(""); // Resetar exercício quando mudar de grupo
           }}
           name=""
           id="exerciseGroup"
@@ -56,22 +59,20 @@ export const ExerciseForm = ({
           name=""
           id="exercise"
         >
-          <>
-            <option value="">Selecione um exercício...</option>
-            {selectedGroup &&
-              workoutData[selectedGroup]?.map((exercise) => (
-                <option key={exercise} value={exercise}>
-                  {exercise}
-                </option>
-              ))}
-          </>
+          <option value="">Selecione um exercício...</option>
+          {selectedGroup &&
+            workoutData[selectedGroup]?.map((exercise) => (
+              <option key={exercise} value={exercise}>
+                {exercise}
+              </option>
+            ))}
         </select>
       </div>
       <S.InputContainer>
         <input min="1" type="number" placeholder="Séries" />
         <input min="1" type="number" placeholder="Repetições" />
       </S.InputContainer>
-      {/* Here we stores the exercise object in a temporary array, before we can store in global state */}
+      {/* Aqui armazenamos o exercício no array temporário, antes de armazená-lo no estado global */}
       <S.AddButton onClick={handleAddExerciseToList}>
         <img src={add} alt="" /> <span>Adicionar à lista</span>
       </S.AddButton>
