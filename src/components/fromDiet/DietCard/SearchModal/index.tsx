@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import foodsDataFromJson from "../../../../assets/data/foods.json"; // Importe o arquivo JSON
 import { FoodProps } from "../../../../models/MealModel";
 import { useDispatch } from "react-redux";
 import { addFood } from "../../../../redux/reducers/mealsReducer";
@@ -31,12 +32,16 @@ export const SearchModal = ({
 
   // Load foods data from local JSON file
   useEffect(() => {
-    const loadFoodsData = async () => {
-      const response = await fetch("/src/assets/data/foods.json");
-      const data = await response.json();
-      setFoodsData(data);
-    };
-    loadFoodsData();
+    const formattedData = foodsDataFromJson.map(food => ({
+      name: food.name,
+      amount: 100, // default value for'amount'
+      kcal: parseFloat(food.kcal),
+      protein: parseFloat(food.protein),
+      carb: parseFloat(food.carb),
+      fat: parseFloat(food.fat),
+      type: food.type,
+    }));
+    setFoodsData(formattedData); // Use formatted ata
   }, []);
 
   // Recalculate nutrients of the food based on amount typed by user

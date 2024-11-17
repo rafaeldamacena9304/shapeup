@@ -94,7 +94,16 @@ export const WorkoutModal = (props: WorkoutModalProps) => {
           {/* Array of temp exercises before we send them to global state  */}
           <FinalList tempExercises={tempExercises} />
         </S.ExerciseList>
-        <S.SaveButton onClick={handleSaveWorkout}>Salvar treino</S.SaveButton>
+        {tempExercises.length > 0 && (
+          <S.SaveButton
+            onClick={() => {
+              handleSaveWorkout();
+              props.setIsModalOpen(false);
+            }}
+          >
+            Salvar treino
+          </S.SaveButton>
+        )}
       </S.Content>
     </>
   );

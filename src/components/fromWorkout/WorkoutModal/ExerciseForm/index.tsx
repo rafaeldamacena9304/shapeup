@@ -31,7 +31,7 @@ export const ExerciseForm = ({
   return (
     <S.ExerciseContainer>
       <div>
-        <label htmlFor="exerciseGroup">Exercise Group:</label>
+        <label htmlFor="exerciseGroup">Grupo do exercício:</label>
         <select
           // Each input stores temporary data in local state
           value={selectedGroup}
@@ -42,7 +42,7 @@ export const ExerciseForm = ({
           name=""
           id="exerciseGroup"
         >
-          <option value="">Select a group...</option>
+          <option value="">Selecione um grupo...</option>
           {Object.keys(workoutData).map((group) => (
             <option key={group} value={group}>
               {group}
@@ -51,7 +51,7 @@ export const ExerciseForm = ({
         </select>
       </div>
       <div>
-        <label htmlFor="exercise">Exercise:</label>
+        <label htmlFor="exercise">Exercício:</label>
         <select
           value={selectedExercise}
           onChange={(e) => setSelectedExercise(e.target.value)}
@@ -59,7 +59,7 @@ export const ExerciseForm = ({
           name=""
           id="exercise"
         >
-          <option value="">Select an exercise...</option>
+          <option value="">Selecione um exercício...</option>
           {selectedGroup &&
             workoutData[selectedGroup]?.map((exercise) => (
               <option key={exercise} value={exercise}>
@@ -69,12 +69,12 @@ export const ExerciseForm = ({
         </select>
       </div>
       <S.InputContainer>
-        <input min="1" type="number" placeholder="Sets" />
-        <input min="1" type="number" placeholder="Repetitions" />
+        <input min="1" type="number" placeholder="Séries" />
+        <input min="1" type="number" placeholder="Repetições" />
       </S.InputContainer>
       {/* Here we store the exercise object in a temporary array before saving it to the global state */}
       <S.AddButton onClick={handleAddExerciseToList}>
-        <img src={add} alt="" /> <span>Add to list</span>
+        <img src={add} alt="" /> <span>Adicionar à lista</span>
       </S.AddButton>
     </S.ExerciseContainer>
   );
