@@ -25,7 +25,7 @@ export const ExerciseForm = ({
 
   // Recovers object type of workouts from api
   useEffect(() => {
-    fetch("https://shapeup-backend.vercel.app//api/searchWorkout")
+    fetch("https://valorknight.com.br/api/searchWorkout")
       .then((response) => response.json())
       .then((data) => setWorkoutData(data));
   }, []);

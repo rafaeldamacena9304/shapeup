@@ -55,43 +55,6 @@
       },
     ];
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-      const isUserLogged = async () => {
-        try {
-          const response = await fetch(
-            "https://valorknight.com.br/api/check_credentials",
-            {
-              method: "GET",
-              headers: { "Content-Type": "application/json" },
-              credentials: "include",
-            }
-          );
-          if (response.ok) {
-            const data = await response.json();
-            console.log("Resposta do back-end:", data)
-            setIsLoggedIn(data.loggedIn);
-            if (!data.loggedIn){
-              navigate('/')
-            } else{
-              setIsLoggedIn(true)
-            }
-          } else { 
-            navigate('/')
-          }
-        } catch (error) {
-          console.error("Erro ao verificar sessão:", error);
-          navigate('/')
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      isUserLogged();
-    }, [navigate]);
-
     return (
       <>
         <Header />
