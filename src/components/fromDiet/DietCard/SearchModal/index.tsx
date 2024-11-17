@@ -20,33 +20,36 @@ export const SearchModal = ({
 }: SearchModalProps) => {
   const dispatch = useDispatch();
 
-  // Associated with search and suggestions, and select food that user wants
+  // Variables for search term, suggestions, and selected food
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<FoodProps[]>([]);
   const [selectedFood, setSelectedFood] = useState<any>(null);
 
-  // Value for the dinamic amount value in the input typed by user
+  // Value for the dynamic amount that the user enters
   const [editedAmount, setEditedAmount] = useState(100);
 
-  //Recalculate nutrients of the food based on amount typed by user
+  // Recalculate the nutrients of the food based on the entered amount
   const recalculateNutrients = (value: number) =>
     parseFloat(((value / 100) * editedAmount).toFixed(1));
 
-  // Fetching when user types > 2 characters, to find suggestions for search
+  // Function to fetch suggestions from the JSON instead of API
   const handleSearch = async (term: string) => {
     setSearchTerm(term);
     if (term.length > 1) {
-      const response = await fetch(
-        `https://shapeup-backend.vercel.app//api/searchFood?q=${term}`
+      // Simulating the process of retrieving data from a local JSON
+      const response = await fetch("/path/to/your/json/data.json");
+      const data = await response.json();
+      // Filter data based on search term
+      const filteredSuggestions = data.filter((food: any) =>
+        food.name.toLowerCase().includes(term.toLowerCase())
       );
-      const data = (await response).json();
-      setSuggestions(await data);
+      setSuggestions(filteredSuggestions);
     } else if (term.length < 2) {
       setSuggestions([]);
     }
   };
 
-  //Add new food, closes modal and clear selected food
+  // Add selected food, close modal, and reset values
   const handleAddFood = () => {
     dispatch(
       addFood({ id: id, food: { ...selectedFood, amount: editedAmount } })
@@ -74,17 +77,17 @@ export const SearchModal = ({
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             type="text"
-            placeholder="Busque um alimento"
+            placeholder="Search for food"
           />
         </S.SearchBar>
-        {/* Food that user has selected */}
+        {/* Display selected food details */}
         {selectedFood && (
           <>
             <S.Title>
               {selectedFood.name} - {selectedFood.type}
             </S.Title>
             <S.Key>
-              Quantidade:
+              Quantity:
               <S.Value>
                 <input
                   required
@@ -96,25 +99,25 @@ export const SearchModal = ({
               </S.Value>
             </S.Key>
             <S.Key>
-              Proteína:{" "}
+              Protein:{" "}
               <S.Value>{recalculateNutrients(selectedFood.protein)}g</S.Value>
             </S.Key>
             <S.Key>
-              Carboidratos:{" "}
+              Carbohydrates:{" "}
               <S.Value>{recalculateNutrients(selectedFood.carb)}g</S.Value>
             </S.Key>
             <S.Key>
-              Gordura:{" "}
+              Fat:{" "}
               <S.Value>{recalculateNutrients(selectedFood.fat)}g</S.Value>
             </S.Key>
             <S.Key>
-              Calorias:{" "}
+              Calories:{" "}
               <S.Value>{recalculateNutrients(selectedFood.kcal)}kcal</S.Value>
             </S.Key>
-            <S.AddButton onClick={handleAddFood}>Adicionar</S.AddButton>
+            <S.AddButton onClick={handleAddFood}>Add</S.AddButton>
           </>
         )}
-        {/* Suggestions showing bellow search bar */}
+        {/* Display search suggestions below the search bar */}
         {suggestions.length > 2 && (
           <S.Suggestions>
             {suggestions.map((food) => (
@@ -131,7 +134,7 @@ export const SearchModal = ({
                 </span>
                 <br />
                 <span>P:</span> {food.protein}g | <span>C: </span>
-                {food.carb}g | <span>G: </span>
+                {food.carb}g | <span>F: </span>
                 {food.fat}g | {food.kcal}kcal
               </li>
             ))}
