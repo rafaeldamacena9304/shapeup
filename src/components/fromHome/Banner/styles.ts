@@ -12,4 +12,8 @@ export const Banner = styled.img<BannerProps>`
   width: ${(props) => (props.zoom ? "105%" : "95%")};
   transition: all 0.5s ease-in-out;
   opacity: ${(props) => (props.fade ? "1" : "0")};
+
+  @media (max-width:768px){
+    object-fit: cover;
+  }
 `;
