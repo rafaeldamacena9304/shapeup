@@ -6,4 +6,8 @@ export const Card = styled.div`
   box-shadow: 4px 4px 0 rgba(50, 50, 50, 0.15);
   padding: 16px 32px;
   height: 380px;
+
+  @media (max-width:768px){
+    height:330px;
+  }
 `;

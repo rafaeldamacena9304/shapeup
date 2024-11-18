@@ -3,11 +3,20 @@ import styled from "styled-components";
 export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width:385px){
+    flex-direction:column;
+    align-items: flex-end;
+  }
 `;
 export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width:385px){
+    align-items: start;
+  }
 `;
 export const EditButton = styled.button`
   color: var(--lightGray);
@@ -19,6 +28,13 @@ export const EditButton = styled.button`
   margin-right: 14px;
   padding: 4px 8px;
   font-weight: 500;
+
+  @media (max-width:385px){
+    font-size:12px;
+    padding:2px;
+    margin-bottom:8px;
+    border-radius:8px;
+  }
 
   img {
     margin-right: 10px;

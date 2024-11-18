@@ -7,6 +7,10 @@ export const Container = styled.div`
   padding: 16px;
   margin-bottom: 8px;
   border-radius: 8px;
+
+  @media (max-width:385px){
+    padding:6px;
+  }
 `;
 export const Title = styled.p`
   color: var(--lightGray);

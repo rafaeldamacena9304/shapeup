@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
         margin:0 auto;
         max-width:1024px;
         width:100%;
+
+        @media (max-width:768px){
+            width:80%;
+        }
     }
     
     .active{
@@ -58,12 +62,22 @@ export const GlobalStyle = createGlobalStyle`
         font-size:24px;
         font-weight:500;
         color:white;
+
+        @media (max-width:385px){
+            font-size:18px;
+            margin-bottom:16px;
+        }
     }
     .topContainer{
         display:flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom:80px;
+
+        @media (max-width:385px){
+            flex-direction:column;
+            margin-bottom:16px;
+        }
     }
     .cardList{
         display:grid;

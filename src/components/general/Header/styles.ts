@@ -14,9 +14,21 @@ export const Header = styled.header`
   }
 `;
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<{isVisible?: boolean}>`
   display: flex;
   align-items: center;
+
+  @media (max-width:385px){
+    display:${ props => props.isVisible ? "flex" : "none" };
+    flex-direction:column;
+    width:100%;
+    position:absolute;
+    align-items: center;
+    top:98px;
+    left:0;
+    background-color:var(--black);
+    padding:16px;
+  }
 `;
 export const LogoLink = styled(Link)`
   text-decoration: none;
@@ -38,5 +50,10 @@ export const NavLink = styled(Link)`
 
   &:not(:last-child) {
     margin-right: 48px;
+
+    @media (max-width:385px){
+      margin-bottom:8px;
+      margin-right:0;
+    }
   }
 `;

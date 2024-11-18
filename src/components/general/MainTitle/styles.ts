@@ -7,4 +7,8 @@ export const MainTitle = styled.h1`
   font-weight: bold;
   font-size: 48px;
   color: transparent;
+
+  @media (max-width:385px){
+    font-size:32px;
+  }
 `;

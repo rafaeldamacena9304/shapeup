@@ -13,7 +13,7 @@ export const Wrapper = styled.div<WrapperProps>`
   @media (max-width:768px){
     padding: ${(props) => (props.forImage === false ? "32px 116px" : "0")};
   }
-  @media (max-width:395px){
+  @media (max-width:385px){
     padding: ${(props) => (props.forImage === false ? "32px" : "0")};
   }
 `;
