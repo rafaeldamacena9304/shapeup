@@ -52,6 +52,7 @@ export const EditContainer = styled.div`
   @media (max-width:576px){
     flex-direction:column;
     align-items: flex-start;
+    max-width:200px;
   }
 
   input[type="text"],
