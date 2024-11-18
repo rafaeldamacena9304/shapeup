@@ -8,7 +8,6 @@ export const Container = styled.div`
   overflow-y: hidden;
 
   @media (max-width:768px){
-    height:100vh;
     grid-template-columns:1fr;
   }
 `;

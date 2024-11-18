@@ -11,7 +11,7 @@ export const Wrapper = styled.div<WrapperProps>`
   overflow-x: hidden;
 
   @media (max-width:768px){
-    padding: ${(props) => (props.forImage === false ? "32px 116px" : "0")};
+    padding: ${(props) => (props.forImage === false ? "32px 48px" : "0")};
   }
   @media (max-width:385px){
     padding: ${(props) => (props.forImage === false ? "32px" : "0")};
