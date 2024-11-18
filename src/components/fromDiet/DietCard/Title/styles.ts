@@ -7,6 +7,6 @@ export const Title = styled.h3`
   margin-bottom: 4px;
 
   @media (max-width:768px){
-    font-size:16px;
+    font-size:18px;
   }
 `;
