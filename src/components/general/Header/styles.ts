@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Header = styled.header`
-  position:sticky;
-  top:0;
-  left:0;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: var(--black);
   padding: 24px 0;
@@ -16,26 +16,26 @@ export const Header = styled.header`
     justify-content: space-between;
   }
 
-  @media (max-width:576px){
-    margin-bottom:36px;
+  @media (max-width: 576px) {
+    margin-bottom: 36px;
   }
 `;
 
-export const Nav = styled.nav<{isVisible?: boolean}>`
+export const Nav = styled.nav<{ isVisible?: boolean }>`
   display: flex;
   align-items: center;
 
-  @media (max-width:576px){
-    display:${ props => props.isVisible ? "flex" : "none" };
-    flex-direction:column;
-    width:100%;
-    position:absolute;
+  @media (max-width: 576px) {
+    display: ${(props) => (props.isVisible ? "flex" : "none")};
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
     align-items: center;
-    top:98px;
-    left:0;
-    background-color:var(--black);
-    padding:16px;
-    z-index:3;
+    top: 98px;
+    left: 0;
+    background-color: var(--black);
+    padding: 16px;
+    z-index: 3;
   }
 `;
 export const LogoLink = styled(Link)`
@@ -56,12 +56,18 @@ export const NavLink = styled(Link)`
   font-weight: bold;
   font-size: 16px;
 
+  & .active {
+    background-image: var(--blueGradient);
+    color: transparent;
+    background-clip: text;
+  }
+
   &:not(:last-child) {
     margin-right: 48px;
 
-    @media (max-width:576px){
-      margin-bottom:8px;
-      margin-right:0;
+    @media (max-width: 576px) {
+      margin-bottom: 8px;
+      margin-right: 0;
     }
   }
 `;
