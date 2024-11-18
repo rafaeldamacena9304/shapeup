@@ -34,6 +34,10 @@ export const ExerciseList = styled.ul`
   gap: 24px;
   margin-bottom: 48px;
   z-index: 3;
+
+  @media (max-width:576px){
+    grid-template-columns:1fr;
+  }
 `;
 
 export const SaveButton = styled.button`
