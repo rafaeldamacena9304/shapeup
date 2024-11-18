@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+# ShapeUp (Front-end)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ShapeUp é uma ferramenta desenvolvida por mim, utilizando React. Com objetivo de ajudar atletas e pessoas dedicadas a uma vida saudável a gerenciar seus treinos, dietas e objetivos diários. Este projeto foi criado para demonstrar minhas habilidades em front-end e proporcionar uma experiência funcional e bem estruturada para o usuário.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Funcionalidades
 
-### `npm start`
+- **Dashboard**: Visualize seus objetivos diários, com dados claros e organizados.
+- **Treinos Semanais**: Configure seus treinos com base em um banco de exercícios.
+- **Planejamento Alimentar**: Planeje sua dieta diária, consultando a tabela TACO (Tabela Brasileira de Composição de Alimentos).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Tecnologias Utilizadas
 
-### `npm test`
+- **React**: Biblioteca principal para construção da interface.
+- **Redux Toolkit**: Gerenciamento de estado global.
+- **Styled Components**: Estilização moderna e modular.
+- **JSON Local**: Simulação de backend com um arquivo de dados no projeto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🎯 Objetivo do Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O ShapeUp foi criado como um portfólio para demonstrar:
+- Conhecimentos em **React** e boas práticas de desenvolvimento.
+- Capacidade de construir interfaces responsivas e dinâmicas.
+- Habilidade de estruturar e gerenciar dados locais.
+- Integração de estilização avançada com **styled-components**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🖼️ Preview do Projeto
 
-### `npm run eject`
+### Homepage
+![Imagem Demonstrativa](./src/assets/screenshots/1.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Dashboard  
+![Imagem Demonstrativa](./src/assets/screenshots/2.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Treinos
+![Imagem Demonstrativa](./src/assets/screenshots/3.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Imagem Demonstrativa](./src/assets/screenshots/4.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Alimentação
+![Imagem Demonstrativa](./src/assets/screenshots/5.png)
 
-## Learn More
+![Imagem Demonstrativa](./src/assets/screenshots/6.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Imagem Demonstrativa](./src/assets/screenshots/7.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 📚 Referências
+
+- **TACO (Tabela Brasileira de Composição de Alimentos)**: [Link oficial](http://www.tbca.net.br/)
+- React: [Documentação](https://reactjs.org/)
+- Redux Toolkit: [Documentação](https://redux-toolkit.js.org/)
+- Styled Components: [Documentação](https://styled-components.com/)
+
+---
+
+## 📩 Contato
+
+Gostou do projeto? Entre em contato comigo!  
+📧 E-mail: [rafaeldamacena9304@gmail.com](rafaeldamacena9304@gmail.com)  
+🌐 LinkedIn: [Rafael Damacena](https://www.linkedin.com/in/rafael-damacena-4aa03024a/)
+
+---
+
+## 🏆 Agradecimentos
+
+A todos que incentivam e valorizam o desenvolvimento de ferramentas úteis para o bem-estar e qualidade de vida!
+
+---
+
+> Este projeto é parte do meu portfólio para fins educacionais e de demonstração.
