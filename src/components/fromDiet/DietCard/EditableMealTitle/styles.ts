@@ -69,7 +69,7 @@ export const EditContainer = styled.div`
 
     @media (max-width:576px){
       font-size:16px;
-      max-width:120px;
+      max-width:130px;
     }
   }
   input[type="text"] {

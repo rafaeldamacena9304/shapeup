@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Header = styled.header`
+  position:sticky;
+  top:0;
+  left:0;
   width: 100%;
   background-color: var(--black);
   padding: 24px 0;
