@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
         align-items: center;
         margin-bottom:80px;
 
-        @media (max-width:385px){
+        @media (max-width:576px){
             flex-direction:column;
             margin-bottom:16px;
         }
