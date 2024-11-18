@@ -36,6 +36,7 @@ export const Nav = styled.nav<{isVisible?: boolean}>`
     left:0;
     background-color:var(--black);
     padding:16px;
+    z-index:3;
   }
 `;
 export const LogoLink = styled(Link)`
