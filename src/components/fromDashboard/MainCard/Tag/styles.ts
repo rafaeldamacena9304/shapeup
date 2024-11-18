@@ -8,6 +8,7 @@ export const Tag = styled.div<{ cardType: string }>`
   img {
     margin-right: 12px;
   }
+   
 `;
 
 export const Content = styled.span<{ status: string }>`
@@ -27,4 +28,8 @@ export const Content = styled.span<{ status: string }>`
 
 export const Checkbox = styled.img`
   margin-right: 12px;
+    
+  &:hover{
+    cursor:pointer;
+  }
 `;
