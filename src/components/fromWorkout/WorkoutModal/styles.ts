@@ -16,8 +16,11 @@ export const Content = styled.div<{ isModalOpen: boolean }>`
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
-  padding: 32px;
+  padding: 32px;  
   display: ${(props) => (props.isModalOpen ? "block" : "none")};
+  @media (max-width:576px){
+    padding:0;
+  }
 
   h3 {
     font-weight: bold;

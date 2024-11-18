@@ -9,7 +9,6 @@ export const Header = styled.header`
   background-color: var(--black);
   padding: 24px 0;
   margin-bottom: 64px;
-  z-index:3;
 
   .container {
     display: flex;
@@ -36,7 +35,7 @@ export const Nav = styled.nav<{isVisible?: boolean}>`
     left:0;
     background-color:var(--black);
     padding:16px;
-    z-index:1;
+    z-index:3;
   }
 `;
 export const LogoLink = styled(Link)`
