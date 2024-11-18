@@ -4,7 +4,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     flex-direction:column;
     align-items: flex-end;
   }
@@ -14,7 +14,7 @@ export const TitleContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     align-items: start;
   }
 `;
@@ -29,7 +29,7 @@ export const EditButton = styled.button`
   padding: 4px 8px;
   font-weight: 500;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     font-size:12px;
     padding:2px;
     margin-bottom:8px;

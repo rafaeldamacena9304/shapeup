@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin-bottom: 8px;
   border-radius: 8px;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     padding:6px;
   }
 `;

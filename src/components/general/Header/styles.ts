@@ -18,7 +18,7 @@ export const Nav = styled.nav<{isVisible?: boolean}>`
   display: flex;
   align-items: center;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     display:${ props => props.isVisible ? "flex" : "none" };
     flex-direction:column;
     width:100%;

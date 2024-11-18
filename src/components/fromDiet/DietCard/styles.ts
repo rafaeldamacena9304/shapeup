@@ -8,7 +8,7 @@ export const Card = styled.div`
   border-radius: 16px;
   margin-bottom: 32px;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     padding:16px 20px;
   }
 `;
@@ -22,7 +22,7 @@ export const TotalKcal = styled.span`
   font-size: 14px;
   font-weight: 600;
 
-  @media (max-width:385px){
+  @media (max-width:576px){
     font-size:12px;
     bottom:4px;
     right:24px;

@@ -63,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
         font-weight:500;
         color:white;
 
-        @media (max-width:385px){
+        @media (max-width:576px){
             font-size:18px;
             margin-bottom:16px;
         }
