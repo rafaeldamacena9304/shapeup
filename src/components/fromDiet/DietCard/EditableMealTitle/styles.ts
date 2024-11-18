@@ -49,6 +49,11 @@ export const EditContainer = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width:576px){
+    flex-direction:column;
+    align-items: flex-start;
+  }
+
   input[type="text"],
   input[type="time"] {
     color: white;
@@ -60,6 +65,10 @@ export const EditContainer = styled.div`
     border: 1px solid var(--darkGray);
     border-radius: 6px;
     margin-right: 8px;
+
+    @media (max-width:576px){
+      font-size:16px;
+    }
   }
   input[type="text"] {
     padding-left: 8px;

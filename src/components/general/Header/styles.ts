@@ -6,11 +6,16 @@ export const Header = styled.header`
   background-color: var(--black);
   padding: 24px 0;
   margin-bottom: 64px;
+  z-index:3;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  @media (max-width:576px){
+    margin-bottom:36px;
   }
 `;
 
@@ -51,7 +56,7 @@ export const NavLink = styled(Link)`
   &:not(:last-child) {
     margin-right: 48px;
 
-    @media (max-width:385px){
+    @media (max-width:576px){
       margin-bottom:8px;
       margin-right:0;
     }

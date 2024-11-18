@@ -9,6 +9,6 @@ export const MainTitle = styled.h1`
   color: transparent;
 
   @media (max-width:576px){
-    font-size:32px;
+    font-size:36px;
   }
 `;
