@@ -89,10 +89,10 @@ export const EditableMealTitle = ({
           <Title title={newTitle} time={newTime} />
           <S.ButtonsContainer>
             <S.EditButton onClick={() => setIsEditing(true)}>
-              <img src={edit} alt="Editar" /> Editar
+              <img src={edit} alt="Editar" /> 
             </S.EditButton>
             <S.EditButton onClick={() => setIsModalOpen(true)}>
-              <img src={add} alt="Adicionar" /> Adicionar alimento
+              <img src={add} alt="Adicionar" /> 
             </S.EditButton>
           </S.ButtonsContainer>
         </>
